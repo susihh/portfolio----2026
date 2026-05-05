@@ -1,0 +1,1757 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚽ Album Copa do Mundo 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --verde: #1a5c2e;
+    --verde-claro: #2d8a47;
+    --verde-escuro: #0d3318;
+    --preto: #0a0a0a;
+    --cinza-escuro: #1a1a1a;
+    --cinza: #2e2e2e;
+    --cinza-medio: #4a4a4a;
+    --cinza-claro: #888;
+    --dourado: #d4af37;
+    --dourado-claro: #f0d060;
+    --dourado-escuro: #a08020;
+    --branco: #f5f5f5;
+    --texto: #e0e0e0;
+    --danger: #c0392b;
+    --success: #27ae60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--preto);
+    color: var(--texto);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ========== TELAS ========== */
+  .screen { display: none; min-height: 100vh; }
+  .screen.active { display: flex; flex-direction: column; }
+
+  /* ========== TELA 1: LOGIN ========== */
+  #screen-login {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000 0%, #0d3318 50%, #000 100%);
+    overflow: hidden;
+  }
+
+  .login-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(26,92,46,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(26,92,46,0.3) 0%, transparent 50%);
+    z-index: 0;
+  }
+
+  .login-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(212,175,55,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  .login-particles {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--dourado);
+    border-radius: 50%;
+    animation: float-particle linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes float-particle {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+  }
+
+  .login-container {
+    position: relative; z-index: 10;
+    width: 100%; max-width: 480px;
+    padding: 20px;
+  }
+
+  .login-logo {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .login-logo .trophy {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 20px rgba(212,175,55,0.8));
+    animation: trophy-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes trophy-pulse {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(212,175,55,0.8)); }
+    50% { filter: drop-shadow(0 0 40px rgba(212,175,55,1)); }
+  }
+
+  .login-logo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--dourado), var(--dourado-claro), var(--dourado));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+
+  .login-logo p {
+    color: var(--cinza-claro);
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .login-card {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.1);
+  }
+
+  .login-tabs {
+    display: flex;
+    background: var(--cinza-escuro);
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(212,175,55,0.1);
+  }
+
+  .login-tab {
+    flex: 1; padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cinza-claro);
+    transition: all 0.3s;
+    letter-spacing: 1px;
+  }
+
+  .login-tab.active {
+    background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+    color: white;
+    box-shadow: 0 4px 15px rgba(26,92,46,0.4);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dourado);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .input-wrap {
+    position: relative;
+  }
+
+  .input-wrap .icon {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    font-size: 16px; opacity: 0.6;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 14px 14px 14px 44px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 10px;
+    color: var(--branco);
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+    outline: none;
+  }
+
+  .form-group input:focus {
+    border-color: var(--dourado);
+    background: rgba(212,175,55,0.05);
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+  }
+
+  .btn-login {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde), var(--verde-claro));
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+  .btn-login::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(212,175,55,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+  }
+
+  .btn-login:hover::before { transform: translateX(100%); }
+  .btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(26,92,46,0.5), 0 0 20px rgba(212,175,55,0.2);
+  }
+
+  /* ========== NAVBAR ========== */
+  .navbar {
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-logo span { font-size: 24px; }
+
+  .nav-menu {
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  .nav-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cinza-claro);
+    transition: all 0.3s;
+    border: none;
+    background: none;
+    letter-spacing: 0.5px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .nav-btn:hover { color: var(--dourado); background: rgba(212,175,55,0.08); }
+  .nav-btn.active { color: var(--dourado); background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.2); }
+
+  .nav-user {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .nav-points {
+    display: flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dourado);
+  }
+
+  .nav-avatar {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    border: 2px solid rgba(212,175,55,0.3);
+    cursor: pointer;
+  }
+
+  /* ========== PAGE CONTENT ========== */
+  .page-content { display: none; flex: 1; flex-direction: column; padding: 28px; gap: 24px; }
+  .page-content.active { display: flex; }
+
+  /* ========== TELA 2: ÁLBUM ========== */
+  .album-header {
+    background: linear-gradient(135deg, rgba(26,92,46,0.3), rgba(13,51,24,0.5));
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .album-header-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    color: var(--dourado);
+    margin-bottom: 6px;
+  }
+
+  .album-header-info p { color: var(--cinza-claro); font-size: 14px; }
+
+  .progress-bar-wrap {
+    flex: 1; max-width: 400px;
+  }
+
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--cinza-claro); margin-bottom: 8px;
+  }
+
+  .progress-bar {
+    height: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--verde), var(--dourado));
+    border-radius: 10px;
+    transition: width 1s ease;
+    position: relative;
+  }
+
+  .progress-fill::after {
+    content: '';
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 20px;
+    background: rgba(255,255,255,0.3);
+    filter: blur(4px);
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: rgba(20,20,20,0.8);
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(212,175,55,0.35);
+    transform: translateY(-3px);
+  }
+
+  .stat-card .stat-icon { font-size: 28px; margin-bottom: 8px; }
+  .stat-card .stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--dourado);
+  }
+  .stat-card .stat-label { font-size: 12px; color: var(--cinza-claro); margin-top: 4px; letter-spacing: 1px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dourado);
+    display: flex; align-items: center; gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .section-title::before {
+    content: '';
+    width: 4px; height: 20px;
+    background: linear-gradient(var(--dourado), var(--verde));
+    border-radius: 2px;
+  }
+
+  /* FILTER TABS */
+  .filter-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+  }
+
+  .filter-tab {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: var(--cinza-claro);
+    letter-spacing: 0.5px;
+  }
+
+  .filter-tab.active, .filter-tab:hover {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+    border-color: var(--verde-claro);
+    color: white;
+  }
+
+  /* STICKER GRID */
+  .sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 14px;
+  }
+
+  .sticker-card {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sticker-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(212,175,55,0.03), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .sticker-card:hover { transform: translateY(-4px); }
+  .sticker-card:hover::before { opacity: 1; }
+
+  .sticker-card.owned {
+    border-color: rgba(26,92,46,0.5);
+    background: rgba(26,92,46,0.15);
+  }
+
+  .sticker-card.owned:hover { border-color: var(--verde-claro); box-shadow: 0 8px 25px rgba(26,92,46,0.3); }
+
+  .sticker-card.duplicate {
+    border-color: rgba(212,175,55,0.4);
+    background: rgba(212,175,55,0.08);
+  }
+
+  .sticker-card.duplicate:hover { border-color: var(--dourado); box-shadow: 0 8px 25px rgba(212,175,55,0.2); }
+
+  .sticker-card.missing {
+    border-color: rgba(255,255,255,0.04);
+    filter: grayscale(0.8) brightness(0.4);
+  }
+
+  .sticker-emoji { font-size: 32px; margin-bottom: 8px; display: block; }
+
+  .sticker-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    color: var(--dourado);
+    margin-bottom: 4px;
+  }
+
+  .sticker-name { font-size: 11px; color: var(--texto); font-weight: 600; }
+  .sticker-country { font-size: 10px; color: var(--cinza-claro); margin-top: 2px; }
+
+  .badge {
+    position: absolute; top: 6px; right: 6px;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+
+  .badge-dup {
+    background: rgba(212,175,55,0.2);
+    color: var(--dourado);
+    border: 1px solid rgba(212,175,55,0.4);
+  }
+
+  .badge-new {
+    background: rgba(26,92,46,0.3);
+    color: #5fce85;
+    border: 1px solid rgba(95,206,133,0.3);
+  }
+
+  /* ========== TELA 3: MERCADO ========== */
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .market-grid { grid-template-columns: 1fr; }
+    .sticker-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  }
+
+  .market-panel {
+    background: rgba(20,20,20,0.8);
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .market-panel-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .market-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .market-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 12px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .market-item:hover {
+    border-color: rgba(212,175,55,0.3);
+    background: rgba(212,175,55,0.05);
+    transform: translateX(4px);
+  }
+
+  .market-item-emoji { font-size: 28px; }
+
+  .market-item-info { flex: 1; }
+  .market-item-info .name { font-size: 14px; font-weight: 600; }
+  .market-item-info .detail { font-size: 12px; color: var(--cinza-claro); }
+
+  .market-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    color: var(--dourado);
+    text-align: right;
+  }
+
+  .market-price small { display: block; font-size: 10px; color: var(--cinza-claro); font-family: 'Inter', sans-serif; }
+
+  .btn-action {
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-sell {
+    background: linear-gradient(135deg, rgba(192,57,43,0.2), rgba(192,57,43,0.1));
+    color: #e74c3c;
+    border: 1px solid rgba(192,57,43,0.3);
+  }
+
+  .btn-sell:hover { background: rgba(192,57,43,0.3); transform: scale(1.05); }
+
+  .btn-buy {
+    background: linear-gradient(135deg, rgba(26,92,46,0.3), rgba(26,92,46,0.1));
+    color: #5fce85;
+    border: 1px solid rgba(26,92,46,0.4);
+  }
+
+  .btn-buy:hover { background: rgba(26,92,46,0.4); transform: scale(1.05); }
+
+  /* ========== TELA 4: PONTOS/RECOMPENSAS ========== */
+  .points-hero {
+    background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(26,92,46,0.2), rgba(212,175,55,0.05));
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .points-hero::before {
+    content: '⭐';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.03;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .points-hero .big-points {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--dourado), var(--dourado-claro), var(--dourado));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .points-hero p { color: var(--cinza-claro); font-size: 14px; letter-spacing: 3px; text-transform: uppercase; }
+
+  .points-level {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 20px;
+    padding: 6px 20px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dourado);
+  }
+
+  .rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .reward-card {
+    background: rgba(20,20,20,0.8);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reward-card:hover {
+    border-color: rgba(212,175,55,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  }
+
+  .reward-card.unlocked {
+    border-color: rgba(212,175,55,0.3);
+    background: rgba(212,175,55,0.06);
+  }
+
+  .reward-card.locked { filter: brightness(0.6); }
+
+  .reward-icon { font-size: 48px; margin-bottom: 12px; display: block; }
+  .reward-name { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; letter-spacing: 1px; }
+  .reward-desc { font-size: 12px; color: var(--cinza-claro); margin-bottom: 14px; line-height: 1.5; }
+
+  .reward-cost {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 12px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dourado);
+  }
+
+  .btn-redeem {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+  }
+
+  .btn-redeem:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(26,92,46,0.4); }
+  .btn-redeem:disabled { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.05); color: var(--cinza-claro); cursor: not-allowed; transform: none; }
+
+  /* HISTORY */
+  .history-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .history-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+  }
+
+  .history-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .history-item .desc { flex: 1; font-size: 13px; }
+  .history-item .date { font-size: 11px; color: var(--cinza-claro); }
+  .history-item .pts { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700; }
+
+  /* TOAST */
+  .toast-container {
+    position: fixed; bottom: 24px; right: 24px;
+    z-index: 9999;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .toast {
+    background: rgba(20,20,20,0.95);
+    border-radius: 12px;
+    padding: 14px 20px;
+    min-width: 260px;
+    display: flex; align-items: center; gap: 10px;
+    animation: toast-in 0.3s ease;
+    border-left: 4px solid var(--verde-claro);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .toast.gold { border-left-color: var(--dourado); }
+  .toast.red { border-left-color: var(--danger); }
+
+  @keyframes toast-in {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 500;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: rgba(20,20,20,0.98);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 420px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    animation: modal-in 0.3s ease;
+  }
+
+  @keyframes modal-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(255,255,255,0.08);
+    border: none; border-radius: 50%;
+    width: 32px; height: 32px;
+    cursor: pointer; color: var(--cinza-claro);
+    font-size: 16px; line-height: 32px; text-align: center;
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover { background: rgba(255,255,255,0.15); color: white; }
+
+  .modal h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: var(--dourado);
+    margin-bottom: 6px;
+  }
+
+  .modal p { font-size: 14px; color: var(--cinza-claro); margin-bottom: 20px; line-height: 1.6; }
+
+  .modal-sticker-preview {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .modal-sticker-preview .big-emoji { font-size: 64px; }
+  .modal-sticker-preview .sticker-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    color: var(--dourado);
+    margin-top: 8px;
+  }
+
+  .modal-price-input {
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-price-input input {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Orbitron', sans-serif;
+    outline: none;
+  }
+
+  .modal-price-input input:focus { border-color: var(--dourado); }
+
+  .modal-actions { display: flex; gap: 10px; }
+
+  .btn-modal {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid;
+    letter-spacing: 1px;
+  }
+
+  .btn-confirm {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+    border-color: rgba(212,175,55,0.2);
+    color: white;
+  }
+
+  .btn-confirm:hover { transform: scale(1.02); box-shadow: 0 6px 20px rgba(26,92,46,0.4); }
+
+  .btn-cancel {
+    background: transparent;
+    border-color: rgba(255,255,255,0.1);
+    color: var(--cinza-claro);
+  }
+
+  .btn-cancel:hover { background: rgba(255,255,255,0.05); color: white; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--preto); }
+  ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.4); }
+
+  .separator { height: 1px; background: rgba(255,255,255,0.05); margin: 4px 0; }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--cinza-claro);
+  }
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; opacity: 0.4; }
+  .empty-state p { font-size: 14px; }
+</style>
+</head>
+<body>
+
+<!-- ============================
+     TELA 1: LOGIN
+     ============================ -->
+<div id="screen-login" class="screen active">
+  <div class="login-bg"></div>
+  <div class="login-grid"></div>
+  <div class="login-particles" id="particles"></div>
+
+  <div class="login-container">
+    <div class="login-logo">
+      <span class="trophy">🏆</span>
+      <h1>COPA DO MUNDO<br>2026</h1>
+      <p>Álbum de Figurinhas Oficial</p>
+    </div>
+
+    <div class="login-card">
+      <div class="login-tabs">
+        <div class="login-tab active" onclick="switchTab('login')">Entrar</div>
+        <div class="login-tab" onclick="switchTab('register')">Cadastrar</div>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="form-login">
+        <div class="form-group">
+          <label>E-mail</label>
+          <div class="input-wrap">
+            <span class="icon">📧</span>
+            <input type="email" id="login-email" placeholder="seu@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Senha</label>
+          <div class="input-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="login-password" placeholder="••••••••">
+          </div>
+        </div>
+        <button class="btn-login" onclick="doLogin()">⚽ ENTRAR NO ÁLBUM</button>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="form-register" style="display:none">
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <div class="input-wrap">
+            <span class="icon">👤</span>
+            <input type="text" id="reg-name" placeholder="Seu nome">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <div class="input-wrap">
+            <span class="icon">📧</span>
+            <input type="email" id="reg-email" placeholder="seu@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Senha</label>
+          <div class="input-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="reg-password" placeholder="••••••••">
+          </div>
+        </div>
+        <button class="btn-login" onclick="doRegister()">🎴 CRIAR MINHA CONTA</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     APP (pós-login)
+     ============================ -->
+<div id="screen-app" class="screen">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span>🏆</span> COPA 2026
+    </div>
+    <div class="nav-menu">
+      <button class="nav-btn active" id="nav-album" onclick="showPage('album')">🎴 Álbum</button>
+      <button class="nav-btn" id="nav-market" onclick="showPage('market')">🏪 Mercado</button>
+      <button class="nav-btn" id="nav-points" onclick="showPage('points')">⭐ Pontos</button>
+    </div>
+    <div class="nav-user">
+      <div class="nav-points" id="nav-points-display">⭐ <span id="points-val">0</span> pts</div>
+      <div class="nav-avatar" id="nav-avatar" title="Perfil">👤</div>
+      <button class="nav-btn" onclick="doLogout()" title="Sair">🚪</button>
+    </div>
+  </nav>
+
+  <!-- ============================
+       PÁGINA: ÁLBUM
+       ============================ -->
+  <div class="page-content active" id="page-album" style="overflow-y:auto">
+
+    <!-- Header Progress -->
+    <div class="album-header">
+      <div class="album-header-info">
+        <h2>🎴 Meu Álbum</h2>
+        <p id="album-greeting">Bem-vindo de volta, craque!</p>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-label">
+          <span>Progresso da coleção</span>
+          <span id="prog-text">0 / 50</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="prog-fill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value" id="stat-owned">0</div>
+        <div class="stat-label">Figurinhas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔁</div>
+        <div class="stat-value" id="stat-dup">0</div>
+        <div class="stat-label">Repetidas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">❌</div>
+        <div class="stat-value" id="stat-miss">0</div>
+        <div class="stat-label">Faltando</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-value" id="stat-pts">0</div>
+        <div class="stat-label">Pontos</div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div>
+      <div class="section-header">
+        <div class="section-title">Coleção</div>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterStickers('all', this)">Todas</button>
+        <button class="filter-tab" onclick="filterStickers('owned', this)">✅ Tenho</button>
+        <button class="filter-tab" onclick="filterStickers('duplicate', this)">🔁 Repetidas</button>
+        <button class="filter-tab" onclick="filterStickers('missing', this)">❌ Faltando</button>
+      </div>
+      <div class="sticker-grid" id="sticker-grid"></div>
+    </div>
+
+  </div>
+
+  <!-- ============================
+       PÁGINA: MERCADO
+       ============================ -->
+  <div class="page-content" id="page-market" style="overflow-y:auto">
+
+    <!-- Stats mercado -->
+    <div class="stats-row" style="margin-bottom:0">
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-value" id="market-sold">0</div>
+        <div class="stat-label">Vendidas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🛒</div>
+        <div class="stat-value" id="market-bought">0</div>
+        <div class="stat-label">Compradas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-value" id="market-pts">0</div>
+        <div class="stat-label">Pts Ganhos</div>
+      </div>
+    </div>
+
+    <div class="market-grid">
+      <!-- VENDER -->
+      <div class="market-panel">
+        <div class="market-panel-title">💸 Minhas Repetidas (Vender)</div>
+        <div id="sell-list" class="market-list"></div>
+      </div>
+
+      <!-- COMPRAR -->
+      <div class="market-panel">
+        <div class="market-panel-title">🛒 Disponíveis para Comprar</div>
+        <div id="buy-list" class="market-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       PÁGINA: PONTOS
+       ============================ -->
+  <div class="page-content" id="page-points" style="overflow-y:auto">
+
+    <!-- Pontos hero -->
+    <div class="points-hero">
+      <div class="big-points" id="hero-points">0</div>
+      <p>pontos acumulados</p>
+      <div class="points-level" id="user-level">🥉 Nível: Rookie</div>
+    </div>
+
+    <!-- Como ganhar pontos -->
+    <div>
+      <div class="section-header">
+        <div class="section-title">Como Ganhar Pontos</div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card" style="cursor:default">
+          <div class="stat-icon">🎴</div>
+          <div class="stat-value" style="font-size:18px">+10</div>
+          <div class="stat-label">Por figurinha colada</div>
+        </div>
+        <div class="stat-card" style="cursor:default">
+          <div class="stat-icon">💸</div>
+          <div class="stat-value" style="font-size:18px">+15</div>
+          <div class="stat-label">Por figurinha vendida</div>
+        </div>
+        <div class="stat-card" style="cursor:default">
+          <div class="stat-icon">🛒</div>
+          <div class="stat-value" style="font-size:18px">+5</div>
+          <div class="stat-label">Por figurinha comprada</div>
+        </div>
+        <div class="stat-card" style="cursor:default">
+          <div class="stat-icon">🌟</div>
+          <div class="stat-value" style="font-size:18px">+50</div>
+          <div class="stat-label">Completar um grupo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recompensas -->
+    <div>
+      <div class="section-header">
+        <div class="section-title">🏆 Recompensas</div>
+      </div>
+      <div class="rewards-grid" id="rewards-grid"></div>
+    </div>
+
+    <!-- Histórico -->
+    <div>
+      <div class="section-header">
+        <div class="section-title">📋 Histórico de Pontos</div>
+      </div>
+      <div class="history-list" id="history-list">
+        <div class="empty-state">
+          <div class="icon">📋</div>
+          <p>Nenhuma atividade ainda.<br>Comece colando suas figurinhas!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL: Vender -->
+<div class="modal-overlay" id="modal-sell">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-sell')">✕</button>
+    <h3>💸 Vender Figurinha</h3>
+    <p>Defina o preço em pontos para vender sua figurinha repetida no mercado.</p>
+    <div class="modal-sticker-preview">
+      <div class="big-emoji" id="modal-sell-emoji">⚽</div>
+      <div class="sticker-label" id="modal-sell-name">—</div>
+    </div>
+    <div class="modal-price-input">
+      <span style="color:var(--dourado);font-size:20px">⭐</span>
+      <input type="number" id="sell-price" min="5" max="200" value="20" placeholder="Preço em pontos">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal btn-cancel" onclick="closeModal('modal-sell')">Cancelar</button>
+      <button class="btn-modal btn-confirm" onclick="confirmSell()">✅ Confirmar Venda</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Comprar -->
+<div class="modal-overlay" id="modal-buy">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-buy')">✕</button>
+    <h3>🛒 Comprar Figurinha</h3>
+    <p id="modal-buy-desc">Confirma a compra desta figurinha?</p>
+    <div class="modal-sticker-preview">
+      <div class="big-emoji" id="modal-buy-emoji">⚽</div>
+      <div class="sticker-label" id="modal-buy-name">—</div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal btn-cancel" onclick="closeModal('modal-buy')">Cancelar</button>
+      <button class="btn-modal btn-confirm" onclick="confirmBuy()">⭐ Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+// ============================================================
+//  DADOS DO APP
+// ============================================================
+const ALL_STICKERS = [
+  // GRUPO A - BRASIL
+  {id:1, num:'BRA-01', name:'Vini Jr', country:'Brasil 🇧🇷', emoji:'⚽', group:'Brasil'},
+  {id:2, num:'BRA-02', name:'Rodrygo', country:'Brasil 🇧🇷', emoji:'⚽', group:'Brasil'},
+  {id:3, num:'BRA-03', name:'Neymar', country:'Brasil 🇧🇷', emoji:'⚽', group:'Brasil'},
+  {id:4, num:'BRA-04', name:'Marquinhos', country:'Brasil 🇧🇷', emoji:'🛡️', group:'Brasil'},
+  {id:5, num:'BRA-05', name:'Alisson', country:'Brasil 🇧🇷', emoji:'🧤', group:'Brasil'},
+  // ARG
+  {id:6, num:'ARG-01', name:'Messi', country:'Argentina 🇦🇷', emoji:'⭐', group:'Argentina'},
+  {id:7, num:'ARG-02', name:'Di María', country:'Argentina 🇦🇷', emoji:'⚽', group:'Argentina'},
+  {id:8, num:'ARG-03', name:'Álvarez', country:'Argentina 🇦🇷', emoji:'⚽', group:'Argentina'},
+  {id:9, num:'ARG-04', name:'de Paul', country:'Argentina 🇦🇷', emoji:'⚽', group:'Argentina'},
+  {id:10, num:'ARG-05', name:'Dibu Martínez', country:'Argentina 🇦🇷', emoji:'🧤', group:'Argentina'},
+  // FRA
+  {id:11, num:'FRA-01', name:'Mbappé', country:'França 🇫🇷', emoji:'⚡', group:'França'},
+  {id:12, num:'FRA-02', name:'Griezmann', country:'França 🇫🇷', emoji:'⚽', group:'França'},
+  {id:13, num:'FRA-03', name:'Camavinga', country:'França 🇫🇷', emoji:'⚽', group:'França'},
+  {id:14, num:'FRA-04', name:'Kanté', country:'França 🇫🇷', emoji:'⚽', group:'França'},
+  {id:15, num:'FRA-05', name:'Lloris', country:'França 🇫🇷', emoji:'🧤', group:'França'},
+  // ENG
+  {id:16, num:'ENG-01', name:'Bellingham', country:'Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿', emoji:'⚽', group:'Inglaterra'},
+  {id:17, num:'ENG-02', name:'Kane', country:'Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿', emoji:'⚽', group:'Inglaterra'},
+  {id:18, num:'ENG-03', name:'Saka', country:'Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿', emoji:'⚽', group:'Inglaterra'},
+  {id:19, num:'ENG-04', name:'Foden', country:'Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿', emoji:'⚽', group:'Inglaterra'},
+  {id:20, num:'ENG-05', name:'Pickford', country:'Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿', emoji:'🧤', group:'Inglaterra'},
+  // POR
+  {id:21, num:'POR-01', name:'Cristiano Ronaldo', country:'Portugal 🇵🇹', emoji:'👑', group:'Portugal'},
+  {id:22, num:'POR-02', name:'Félix', country:'Portugal 🇵🇹', emoji:'⚽', group:'Portugal'},
+  {id:23, num:'POR-03', name:'Leão', country:'Portugal 🇵🇹', emoji:'⚽', group:'Portugal'},
+  {id:24, num:'POR-04', name:'Bernardo Silva', country:'Portugal 🇵🇹', emoji:'⚽', group:'Portugal'},
+  {id:25, num:'POR-05', name:'Rui Patrício', country:'Portugal 🇵🇹', emoji:'🧤', group:'Portugal'},
+  // ESP
+  {id:26, num:'ESP-01', name:'Pedri', country:'Espanha 🇪🇸', emoji:'⚽', group:'Espanha'},
+  {id:27, num:'ESP-02', name:'Yamal', country:'Espanha 🇪🇸', emoji:'⭐', group:'Espanha'},
+  {id:28, num:'ESP-03', name:'Morata', country:'Espanha 🇪🇸', emoji:'⚽', group:'Espanha'},
+  {id:29, num:'ESP-04', name:'Rodri', country:'Espanha 🇪🇸', emoji:'⚽', group:'Espanha'},
+  {id:30, num:'ESP-05', name:'Unai Simón', country:'Espanha 🇪🇸', emoji:'🧤', group:'Espanha'},
+  // GER
+  {id:31, num:'GER-01', name:'Wirtz', country:'Alemanha 🇩🇪', emoji:'⚽', group:'Alemanha'},
+  {id:32, num:'GER-02', name:'Müller', country:'Alemanha 🇩🇪', emoji:'⚽', group:'Alemanha'},
+  {id:33, num:'GER-03', name:'Havertz', country:'Alemanha 🇩🇪', emoji:'⚽', group:'Alemanha'},
+  {id:34, num:'GER-04', name:'Kimmich', country:'Alemanha 🇩🇪', emoji:'⚽', group:'Alemanha'},
+  {id:35, num:'GER-05', name:'Neuer', country:'Alemanha 🇩🇪', emoji:'🧤', group:'Alemanha'},
+  // URU
+  {id:36, num:'URU-01', name:'Núñez', country:'Uruguai 🇺🇾', emoji:'⚽', group:'Uruguai'},
+  {id:37, num:'URU-02', name:'Valverde', country:'Uruguai 🇺🇾', emoji:'⚽', group:'Uruguai'},
+  {id:38, num:'URU-03', name:'Araújo', country:'Uruguai 🇺🇾', emoji:'🛡️', group:'Uruguai'},
+  // MAR
+  {id:39, num:'MAR-01', name:'Hakimi', country:'Marrocos 🇲🇦', emoji:'⚽', group:'Marrocos'},
+  {id:40, num:'MAR-02', name:'En-Nesyri', country:'Marrocos 🇲🇦', emoji:'⚽', group:'Marrocos'},
+  // JPN
+  {id:41, num:'JPN-01', name:'Doan', country:'Japão 🇯🇵', emoji:'⚽', group:'Japão'},
+  {id:42, num:'JPN-02', name:'Minamino', country:'Japão 🇯🇵', emoji:'⚽', group:'Japão'},
+  // USA
+  {id:43, num:'USA-01', name:'Pulisic', country:'EUA 🇺🇸', emoji:'⚽', group:'EUA'},
+  {id:44, num:'USA-02', name:'Reyna', country:'EUA 🇺🇸', emoji:'⚽', group:'EUA'},
+  // MEX
+  {id:45, num:'MEX-01', name:'Lozano', country:'México 🇲🇽', emoji:'⚽', group:'México'},
+  {id:46, num:'MEX-02', name:'Jiménez', country:'México 🇲🇽', emoji:'⚽', group:'México'},
+  // NIG
+  {id:47, num:'NIG-01', name:'Osimhen', country:'Nigéria 🇳🇬', emoji:'⚽', group:'Nigéria'},
+  {id:48, num:'NIG-02', name:'Iheanacho', country:'Nigéria 🇳🇬', emoji:'⚽', group:'Nigéria'},
+  // ESPECIAIS
+  {id:49, num:'ESP-TROFEU', name:'Taça Copa', country:'Especial ✨', emoji:'🏆', group:'Especial'},
+  {id:50, num:'ESP-BOLA', name:'Bola Oficial', country:'Especial ✨', emoji:'⚽', group:'Especial'},
+];
+
+const TOTAL = ALL_STICKERS.length;
+
+const REWARDS = [
+  {id:'r1', name:'Pack de 5', desc:'Ganhe um pacotinho com 5 figurinhas aleatórias', icon:'🎁', cost:50, type:'pack'},
+  {id:'r2', name:'Moldura Dourada', desc:'Decore seu perfil com uma moldura exclusiva dourada', icon:'🖼️', cost:100, type:'cosmetic'},
+  {id:'r3', name:'Pack Premium', desc:'Pack com 10 figurinhas, maior chance de estrelas', icon:'💎', cost:150, type:'pack'},
+  {id:'r4', name:'Figura Estrela', desc:'Escolha qualquer figurinha que esteja faltando', icon:'⭐', cost:200, type:'choice'},
+  {id:'r5', name:'Camisa da Copa', desc:'Ganhe uma camisa digital exclusiva Copa 2026', icon:'👕', cost:300, type:'prize'},
+  {id:'r6', name:'Campeão!', desc:'Título exclusivo de Colecionador Campeão da Copa', icon:'🏆', cost:500, type:'title'},
+];
+
+// ============================================================
+//  ESTADO DO APP
+// ============================================================
+let state = {
+  user: null,
+  points: 0,
+  owned: [], // ids das figurinhas que tem
+  duplicates: {}, // id -> quantidade de cópias extras
+  redeemed: [],
+  sold: 0,
+  bought: 0,
+  earnedPts: 0,
+  history: [],
+  market: [] // {stickerId, sellerId, price}
+};
+
+let currentFilter = 'all';
+let sellTarget = null;
+let buyTarget = null;
+
+// ============================================================
+//  PARTÍCULAS LOGIN
+// ============================================================
+function initParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (-Math.random() * 15) + 's';
+    container.appendChild(p);
+  }
+}
+initParticles();
+
+// ============================================================
+//  LOGIN / REGISTER
+// ============================================================
+function switchTab(tab) {
+  document.querySelectorAll('.login-tab').forEach((t,i) => {
+    t.classList.toggle('active', (tab === 'login' ? i === 0 : i === 1));
+  });
+  document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('form-register').style.display = tab === 'register' ? 'block' : 'none';
+}
+
+function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const pass = document.getElementById('login-password').value.trim();
+  if (!email || !pass) { showToast('⚠️ Preencha todos os campos!', 'red'); return; }
+
+  const saved = JSON.parse(localStorage.getItem('copa_user_' + email) || 'null');
+  if (!saved || saved.password !== pass) {
+    showToast('❌ E-mail ou senha incorretos!', 'red');
+    return;
+  }
+  state = { ...saved };
+  delete state.password;
+  startApp(saved.name);
+}
+
+function doRegister() {
+  const name = document.getElementById('reg-name').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const pass = document.getElementById('reg-password').value.trim();
+  if (!name || !email || !pass) { showToast('⚠️ Preencha todos os campos!', 'red'); return; }
+  if (pass.length < 4) { showToast('⚠️ Senha muito curta (mín. 4 chars)', 'red'); return; }
+
+  const newUser = {
+    user: name, email, password: pass,
+    points: 100,
+    owned: randomStartPack(),
+    duplicates: {},
+    redeemed: [],
+    sold: 0, bought: 0, earnedPts: 100,
+    history: [{desc:'🎉 Bem-vindo ao Álbum Copa 2026!', pts:100, date: today(), color:'#d4af37'}],
+    market: []
+  };
+  localStorage.setItem('copa_user_' + email, JSON.stringify(newUser));
+  state = {...newUser};
+  startApp(name);
+  showToast('🎉 Conta criada! Bem-vindo, ' + name + '!', 'gold');
+}
+
+function randomStartPack() {
+  const shuffled = [...ALL_STICKERS].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, 8).map(s => s.id);
+}
+
+function doLogout() {
+  saveState();
+  state = { user: null, points: 0, owned: [], duplicates: {}, redeemed: [], sold:0, bought:0, earnedPts:0, history:[], market:[] };
+  document.getElementById('screen-app').classList.remove('active');
+  document.getElementById('screen-login').classList.add('active');
+  showPage('album');
+  showToast('👋 Até logo!', '');
+}
+
+function saveState() {
+  if (!state.user) return;
+  const users = JSON.parse(localStorage.getItem('copa_users_list') || '[]');
+  const email = state.email;
+  const toSave = {...state, password: JSON.parse(localStorage.getItem('copa_user_' + email) || '{}').password};
+  localStorage.setItem('copa_user_' + email, JSON.stringify(toSave));
+}
+
+function startApp(name) {
+  document.getElementById('screen-login').classList.remove('active');
+  document.getElementById('screen-app').classList.add('active');
+  document.getElementById('album-greeting').textContent = 'Bem-vindo de volta, ' + name + '! ⚽';
+  document.getElementById('nav-avatar').title = name;
+  updateAll();
+  showToast('✅ Login feito! Bom jogo, ' + name + '!');
+}
+
+function today() {
+  return new Date().toLocaleDateString('pt-BR');
+}
+
+// ============================================================
+//  NAVEGAÇÃO
+// ============================================================
+function showPage(page) {
+  document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  if (page === 'album') renderAlbum();
+  if (page === 'market') renderMarket();
+  if (page === 'points') renderPoints();
+}
+
+// ============================================================
+//  RENDERIZAR ÁLBUM
+// ============================================================
+function renderAlbum() {
+  const owned = state.owned || [];
+  const dups = state.duplicates || {};
+  const owndSet = new Set(owned);
+  const dupCount = Object.values(dups).reduce((a,b) => a+b, 0);
+
+  document.getElementById('stat-owned').textContent = owndSet.size;
+  document.getElementById('stat-dup').textContent = dupCount;
+  document.getElementById('stat-miss').textContent = TOTAL - owndSet.size;
+  document.getElementById('stat-pts').textContent = state.points;
+  document.getElementById('prog-text').textContent = owndSet.size + ' / ' + TOTAL;
+  document.getElementById('prog-fill').style.width = Math.round((owndSet.size / TOTAL) * 100) + '%';
+  document.getElementById('points-val').textContent = state.points;
+
+  let stickers = ALL_STICKERS;
+  if (currentFilter === 'owned') stickers = stickers.filter(s => owndSet.has(s.id) && !(dups[s.id] > 0));
+  else if (currentFilter === 'duplicate') stickers = stickers.filter(s => dups[s.id] > 0);
+  else if (currentFilter === 'missing') stickers = stickers.filter(s => !owndSet.has(s.id));
+
+  const grid = document.getElementById('sticker-grid');
+  grid.innerHTML = '';
+
+  stickers.forEach(s => {
+    const hasDup = dups[s.id] > 0;
+    const isOwned = owndSet.has(s.id);
+    let cls = 'sticker-card';
+    if (hasDup) cls += ' duplicate';
+    else if (isOwned) cls += ' owned';
+    else cls += ' missing';
+
+    grid.innerHTML += `
+      <div class="${cls}" onclick="stickerClick(${s.id})">
+        ${hasDup ? `<span class="badge badge-dup">x${dups[s.id]+1}</span>` : ''}
+        ${isOwned && !hasDup ? `<span class="badge badge-new">✓</span>` : ''}
+        <span class="sticker-emoji">${s.emoji}</span>
+        <div class="sticker-num">${s.num}</div>
+        <div class="sticker-name">${s.name}</div>
+        <div class="sticker-country">${s.country}</div>
+      </div>`;
+  });
+}
+
+function filterStickers(type, el) {
+  currentFilter = type;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderAlbum();
+}
+
+function stickerClick(id) {
+  const owned = new Set(state.owned || []);
+  const dups = state.duplicates || {};
+
+  if (owned.has(id)) {
+    if (!dups[id]) {
+      // adicionar repetida
+      dups[id] = 1;
+      state.duplicates = dups;
+      addPoints(5, '🔁 Figurinha repetida colada');
+      showToast('🔁 Figurinha adicionada como repetida! +5 pts', 'gold');
+    } else {
+      dups[id]++;
+      state.duplicates = dups;
+      showToast('🔁 Mais uma repetida adicionada!');
+    }
+  } else {
+    state.owned.push(id);
+    addPoints(10, '🎴 Nova figurinha colada: #' + id);
+    showToast('✅ Figurinha colada! +10 pts', '');
+  }
+  saveState();
+  renderAlbum();
+}
+
+// ============================================================
+//  MERCADO
+// ============================================================
+let marketListings = [];
+
+function renderMarket() {
+  const dups = state.duplicates || {};
+  const owned = new Set(state.owned || []);
+
+  document.getElementById('market-sold').textContent = state.sold || 0;
+  document.getElementById('market-bought').textContent = state.bought || 0;
+  document.getElementById('market-pts').textContent = state.earnedPts || 0;
+
+  // Vender
+  const sellList = document.getElementById('sell-list');
+  const dupStickers = ALL_STICKERS.filter(s => dups[s.id] > 0);
+  if (dupStickers.length === 0) {
+    sellList.innerHTML = '<div class="empty-state"><div class="icon">🎴</div><p>Sem figurinhas repetidas para vender.</p></div>';
+  } else {
+    sellList.innerHTML = dupStickers.map(s => `
+      <div class="market-item">
+        <span class="market-item-emoji">${s.emoji}</span>
+        <div class="market-item-info">
+          <div class="name">${s.name}</div>
+          <div class="detail">${s.num} · ${s.country} · ${dups[s.id]} cópia(s)</div>
+        </div>
+        <div>
+          <div class="market-price">⭐ 20 pts<small>por unidade</small></div>
+          <button class="btn-action btn-sell" style="margin-top:6px" onclick="openSell(${s.id})">Vender</button>
+        </div>
+      </div>`).join('');
+  }
+
+  // Comprar (figurinhas que o usuário não tem, simulando mercado)
+  const buyList = document.getElementById('buy-list');
+  const missing = ALL_STICKERS.filter(s => !owned.has(s.id));
+  if (missing.length === 0) {
+    buyList.innerHTML = '<div class="empty-state"><div class="icon">🏆</div><p>Você tem todas as figurinhas! Parabéns!</p></div>';
+  } else {
+    const available = missing.slice(0, 12);
+    buyList.innerHTML = available.map(s => {
+      const price = 20 + Math.floor(Math.random() * 30);
+      return `
+      <div class="market-item">
+        <span class="market-item-emoji">${s.emoji}</span>
+        <div class="market-item-info">
+          <div class="name">${s.name}</div>
+          <div class="detail">${s.num} · ${s.country}</div>
+        </div>
+        <div>
+          <div class="market-price">⭐ ${price}<small>pontos</small></div>
+          <button class="btn-action btn-buy" style="margin-top:6px" onclick="openBuy(${s.id}, ${price})">Comprar</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function openSell(id) {
+  const s = ALL_STICKERS.find(x => x.id === id);
+  sellTarget = s;
+  document.getElementById('modal-sell-emoji').textContent = s.emoji;
+  document.getElementById('modal-sell-name').textContent = s.num + ' · ' + s.name;
+  document.getElementById('modal-sell').classList.add('active');
+}
+
+function confirmSell() {
+  if (!sellTarget) return;
+  const price = parseInt(document.getElementById('sell-price').value) || 20;
+  const dups = state.duplicates || {};
+  if (!dups[sellTarget.id] || dups[sellTarget.id] <= 0) { showToast('❌ Sem repetidas dessa figurinha!', 'red'); return; }
+
+  dups[sellTarget.id]--;
+  if (dups[sellTarget.id] === 0) delete dups[sellTarget.id];
+  state.duplicates = dups;
+  state.sold = (state.sold || 0) + 1;
+  addPoints(15, '💸 Figurinha vendida: ' + sellTarget.name);
+  showToast('💸 Figurinha vendida! +15 pts', 'gold');
+  closeModal('modal-sell');
+  saveState();
+  renderAlbum();
+  renderMarket();
+}
+
+let buyTargetId = null, buyTargetPrice = 0;
+
+function openBuy(id, price) {
+  const s = ALL_STICKERS.find(x => x.id === id);
+  buyTargetId = id;
+  buyTargetPrice = price;
+  document.getElementById('modal-buy-emoji').textContent = s.emoji;
+  document.getElementById('modal-buy-name').textContent = s.num + ' · ' + s.name;
+  document.getElementById('modal-buy-desc').textContent = `Comprar esta figurinha por ⭐ ${price} pontos?`;
+  document.getElementById('modal-buy').classList.add('active');
+}
+
+function confirmBuy() {
+  if (!buyTargetId) return;
+  if (state.points < buyTargetPrice) {
+    showToast('❌ Pontos insuficientes!', 'red');
+    closeModal('modal-buy');
+    return;
+  }
+  state.points -= buyTargetPrice;
+  state.history.push({desc: '🛒 Figurinha comprada no mercado', pts: -buyTargetPrice, date: today(), color: '#e74c3c'});
+  const owned = new Set(state.owned || []);
+  if (!owned.has(buyTargetId)) {
+    state.owned.push(buyTargetId);
+    addPoints(5, '🛒 Figurinha comprada e colada!');
+  } else {
+    const dups = state.duplicates || {};
+    dups[buyTargetId] = (dups[buyTargetId] || 0) + 1;
+    state.duplicates = dups;
+  }
+  state.bought = (state.bought || 0) + 1;
+  showToast('🛒 Figurinha comprada! +5 pts', '');
+  closeModal('modal-buy');
+  saveState();
+  renderAlbum();
+  renderMarket();
+  updateAll();
+}
+
+// ============================================================
+//  PONTOS / RECOMPENSAS
+// ============================================================
+function renderPoints() {
+  document.getElementById('hero-points').textContent = state.points;
+  document.getElementById('stat-pts').textContent = state.points;
+  document.getElementById('points-val').textContent = state.points;
+
+  // Nível
+  const lvl = getLevel(state.points);
+  document.getElementById('user-level').textContent = lvl.icon + ' ' + lvl.label;
+
+  // Recompensas
+  const grid = document.getElementById('rewards-grid');
+  grid.innerHTML = REWARDS.map(r => {
+    const unlocked = state.points >= r.cost;
+    const redeemed = (state.redeemed || []).includes(r.id);
+    return `
+      <div class="reward-card ${unlocked ? 'unlocked' : 'locked'}">
+        <span class="reward-icon">${r.icon}</span>
+        <div class="reward-name">${r.name}</div>
+        <div class="reward-desc">${r.desc}</div>
+        <div class="reward-cost">⭐ ${r.cost} pts</div>
+        ${redeemed
+          ? `<button class="btn-redeem" disabled>✅ Resgatado</button>`
+          : `<button class="btn-redeem" ${!unlocked ? 'disabled' : ''} onclick="redeem('${r.id}', ${r.cost}, '${r.name}')">${unlocked ? '🎁 Resgatar' : '🔒 Bloqueado'}</button>`
+        }
+      </div>`;
+  }).join('');
+
+  // Histórico
+  const hist = document.getElementById('history-list');
+  if (!state.history || state.history.length === 0) {
+    hist.innerHTML = '<div class="empty-state"><div class="icon">📋</div><p>Nenhuma atividade ainda.</p></div>';
+  } else {
+    hist.innerHTML = [...(state.history || [])].reverse().slice(0,20).map(h => `
+      <div class="history-item">
+        <div class="history-dot" style="background:${h.color || '#2d8a47'}"></div>
+        <span class="desc">${h.desc}</span>
+        <span class="date">${h.date}</span>
+        <span class="pts" style="color:${h.pts >= 0 ? 'var(--dourado)' : '#e74c3c'}">${h.pts >= 0 ? '+' : ''}${h.pts}</span>
+      </div>`).join('');
+  }
+}
+
+function getLevel(pts) {
+  if (pts >= 500) return {icon:'🏆', label:'Nível: Campeão'};
+  if (pts >= 300) return {icon:'🥇', label:'Nível: Ouro'};
+  if (pts >= 150) return {icon:'🥈', label:'Nível: Prata'};
+  if (pts >= 50)  return {icon:'🥉', label:'Nível: Bronze'};
+  return {icon:'⚽', label:'Nível: Rookie'};
+}
+
+function redeem(rewardId, cost, name) {
+  if (state.points < cost) { showToast('❌ Pontos insuficientes!', 'red'); return; }
+  state.points -= cost;
+  state.redeemed = state.redeemed || [];
+  state.redeemed.push(rewardId);
+  state.history.push({desc: '🎁 Recompensa resgatada: ' + name, pts: -cost, date: today(), color: '#d4af37'});
+
+  // Se for pack, dar figurinhas
+  const r = REWARDS.find(x => x.id === rewardId);
+  if (r && r.type === 'pack') {
+    const count = r.id === 'r3' ? 10 : 5;
+    let added = 0;
+    const shuffled = [...ALL_STICKERS].sort(() => Math.random() - 0.5);
+    shuffled.forEach(s => {
+      if (added >= count) return;
+      const owned = new Set(state.owned || []);
+      if (!owned.has(s.id)) {
+        state.owned.push(s.id);
+        added++;
+      } else {
+        const dups = state.duplicates || {};
+        dups[s.id] = (dups[s.id] || 0) + 1;
+        state.duplicates = dups;
+        added++;
+      }
+    });
+    showToast(`🎁 Pack aberto! ${count} figurinhas adicionadas!`, 'gold');
+  } else {
+    showToast('🎉 Recompensa "' + name + '" resgatada!', 'gold');
+  }
+
+  saveState();
+  renderPoints();
+  renderAlbum();
+  updateAll();
+}
+
+// ============================================================
+//  HELPERS
+// ============================================================
+function addPoints(amount, desc) {
+  state.points = (state.points || 0) + amount;
+  state.earnedPts = (state.earnedPts || 0) + amount;
+  state.history = state.history || [];
+  state.history.push({desc, pts: amount, date: today(), color: '#d4af37'});
+  document.getElementById('points-val').textContent = state.points;
+  document.getElementById('stat-pts').textContent = state.points;
+}
+
+function updateAll() {
+  document.getElementById('points-val').textContent = state.points;
+  document.getElementById('stat-pts').textContent = state.points;
+  const owned = new Set(state.owned || []);
+  document.getElementById('stat-owned').textContent = owned.size;
+  document.getElementById('stat-miss').textContent = TOTAL - owned.size;
+  document.getElementById('prog-fill').style.width = Math.round((owned.size / TOTAL) * 100) + '%';
+  document.getElementById('prog-text').textContent = owned.size + ' / ' + TOTAL;
+}
+
+function openModal(id) { document.getElementById(id).classList.add('active'); }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('active'); });
+});
+
+function showToast(msg, type='') {
+  const container = document.getElementById('toast-container');
+  const t = document.createElement('div');
+  t.className = 'toast' + (type ? ' ' + type : '');
+  t.innerHTML = `<span>${msg}</span>`;
+  container.appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(100px)'; t.style.transition = '.3s'; setTimeout(() => t.remove(), 300); }, 3000);
+}
+</script>
+</body>
+</html>
