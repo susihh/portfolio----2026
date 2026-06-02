@@ -53,7 +53,7 @@
       z-index: -2;
     }
 
-    /* Partículas decorativas animadas */
+    /* Partículas decorativas animadas - AGORA EM AZUL */
     .particles {
       position: fixed;
       inset: 0;
@@ -64,9 +64,9 @@
 
     .particle {
       position: absolute;
-      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
       border-radius: 50%;
-      opacity: 0.15;
+      opacity: 0.12;
       animation: floatParticle 20s infinite ease-in-out;
     }
 
@@ -507,7 +507,7 @@
 </head>
 <body>
 
-<!-- Partículas decorativas -->
+<!-- Partículas decorativas em AZUL -->
 <div class="particles" id="particles"></div>
 
 <!-- Hero Section -->
@@ -662,7 +662,7 @@
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
   
-  // Partículas dinâmicas
+  // Partículas dinâmicas em AZUL (gradiente do primário para o mais claro)
   const particlesContainer = document.getElementById('particles');
   for (let i = 0; i < 12; i++) {
     const particle = document.createElement('div');
@@ -674,6 +674,9 @@
     particle.style.left = `${Math.random() * 100}%`;
     particle.style.animationDelay = `${Math.random() * 20}s`;
     particle.style.animationDuration = `${15 + Math.random() * 20}s`;
+    // Cor das partículas alterada para AZUL
+    particle.style.background = `radial-gradient(circle, var(--primary-light), var(--primary-dark))`;
+    particle.style.opacity = '0.08';
     particlesContainer.appendChild(particle);
   }
   
