@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Colégio Estadual Unidade Polo | Excelência em Educação</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <title>Colégio Estadual Unidade Polo | Excelência que Transforma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
@@ -14,155 +14,148 @@
     }
 
     :root {
-      --primary: #0f2b4d;
-      --primary-dark: #081c33;
-      --primary-light: #1a487a;
-      --accent: #f5a623;
-      --accent-dark: #e0910c;
-      --accent-glow: rgba(245, 166, 35, 0.3);
-      --text-dark: #1e293b;
-      --text-gray: #475569;
-      --text-light: #94a3b8;
+      --primary: #0a1c3a;
+      --primary-dark: #051023;
+      --primary-light: #132e54;
+      --secondary: #f5a623;
+      --secondary-dark: #e0910c;
+      --secondary-light: #f7b84d;
+      --accent: #ff6b6b;
+      --text-dark: #0f172a;
+      --text-gray: #334155;
+      --text-light: #64748b;
       --bg-white: #ffffff;
-      --bg-offwhite: #f8fafc;
-      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-      --shadow-glow: 0 0 40px rgba(245, 166, 35, 0.15);
-      --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1.05);
+      --bg-glass: rgba(255, 255, 255, 0.92);
+      --shadow-sm: 0 8px 30px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.12);
+      --shadow-xl: 0 40px 80px rgba(0, 0, 0, 0.15);
+      --shadow-glow: 0 0 50px rgba(245, 166, 35, 0.25);
+      --transition-fast: 0.3s cubic-bezier(0.2, 0.95, 0.4, 1.05);
+      --transition-slow: 0.5s cubic-bezier(0.2, 0.95, 0.4, 1.05);
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       background: url('20.png') center/cover fixed no-repeat;
       color: var(--text-dark);
       line-height: 1.5;
-      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Overlay sutil e elegante */
+    /* Overlay elegante com blur */
     body::before {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(248, 250, 252, 0.88);
-      backdrop-filter: blur(2px);
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.92), rgba(248,250,252,0.96));
+      backdrop-filter: blur(3px);
       z-index: -2;
     }
 
-    /* Elementos decorativos flutuantes */
-    .bg-decoration {
+    /* Partículas decorativas animadas */
+    .particles {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       pointer-events: none;
       z-index: -1;
       overflow: hidden;
     }
 
-    .bg-decoration::before,
-    .bg-decoration::after {
-      content: '';
+    .particle {
       position: absolute;
-      width: 300px;
-      height: 300px;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
       border-radius: 50%;
-      background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-      filter: blur(60px);
+      opacity: 0.15;
+      animation: floatParticle 20s infinite ease-in-out;
     }
 
-    .bg-decoration::before {
-      top: -150px;
-      right: -100px;
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+      25% { transform: translateY(-30px) translateX(20px) rotate(90deg); }
+      50% { transform: translateY(20px) translateX(-30px) rotate(180deg); }
+      75% { transform: translateY(-20px) translateX(-20px) rotate(270deg); }
     }
 
-    .bg-decoration::after {
-      bottom: -150px;
-      left: -100px;
-    }
-
-    /* Container principal */
+    /* Container */
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
     }
 
-    /* Header / Hero Section */
+    /* Hero Section - Premium */
     .hero {
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
-      padding: 80px 24px 100px;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      padding: 100px 24px 120px;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 6px 20px;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      padding: 8px 24px;
       border-radius: 100px;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--primary);
-      background: var(--accent);
-      margin-bottom: 28px;
-      box-shadow: var(--shadow-sm);
+      color: var(--primary-dark);
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-glow);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4); }
+      50% { box-shadow: 0 0 0 15px rgba(245, 166, 35, 0); }
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-size: clamp(2.8rem, 8vw, 5rem);
       font-weight: 800;
-      line-height: 1.15;
-      color: var(--primary-dark);
-      margin-bottom: 20px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 24px;
       letter-spacing: -0.02em;
     }
 
     .hero h1 span {
-      color: var(--accent);
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark), var(--accent));
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      position: relative;
       display: inline-block;
+    }
+
+    .hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary), transparent);
+      border-radius: 4px;
     }
 
     .hero-subtitle {
       font-size: clamp(1rem, 4vw, 1.2rem);
       color: var(--text-gray);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      font-weight: 400;
-      line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      font-weight: 500;
+      line-height: 1.7;
     }
 
     .instagram-link {
@@ -170,207 +163,229 @@
       align-items: center;
       gap: 12px;
       background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-      padding: 12px 28px;
+      padding: 14px 32px;
       border-radius: 100px;
       color: white;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      box-shadow: 0 8px 20px rgba(131, 58, 180, 0.3);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: var(--transition-fast);
+      box-shadow: 0 8px 25px rgba(131, 58, 180, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .instagram-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(131, 58, 180, 0.4);
-      gap: 14px;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(131, 58, 180, 0.45);
+      gap: 16px;
     }
 
-    /* Sections */
+    /* Section Styles */
     section {
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 56px;
+      margin-bottom: 64px;
     }
 
     .section-tag {
       display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 0.7rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 16px;
+      letter-spacing: 3px;
+      color: var(--secondary);
+      background: rgba(245, 166, 35, 0.1);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
     }
 
     .section-title {
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
     }
 
     .section-title span {
-      color: var(--accent);
-      position: relative;
-      display: inline-block;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .section-subtitle {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--text-gray);
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
+      font-weight: 500;
     }
 
-    /* Cards Grid */
+    /* Cards 3D Premium */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
     }
 
     .card {
-      background: var(--bg-white);
-      border-radius: 28px;
-      padding: 32px;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      padding: 36px;
+      transition: var(--transition-slow);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(245, 166, 35, 0.1), transparent);
+      opacity: 0;
+      transition: var(--transition-slow);
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-12px) scale(1.01);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(245, 166, 35, 0.3);
     }
 
     .card:hover::before {
-      transform: scaleX(1);
+      opacity: 1;
     }
 
     .card-icon {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 20px;
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 24px;
     }
 
     .card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
       color: var(--primary-dark);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .card p {
       color: var(--text-gray);
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: 0.92rem;
+      line-height: 1.7;
     }
 
-    /* Gallery */
+    /* Gallery com efeito cinematográfico */
     .gallery {
-      background: var(--bg-white);
-      border-radius: 40px;
-      padding: 60px 0;
+      background: linear-gradient(135deg, rgba(10, 28, 58, 0.05), rgba(245, 166, 35, 0.03));
+      border-radius: 60px;
+      margin: 40px 0;
+      padding: 80px 0;
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
       margin-top: 20px;
     }
 
     .gallery-item {
       position: relative;
-      border-radius: 24px;
+      border-radius: 28px;
       overflow: hidden;
       aspect-ratio: 4/3;
       cursor: pointer;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition-slow);
     }
 
     .gallery-item:hover {
-      transform: scale(1.02);
-      box-shadow: var(--shadow-lg);
+      transform: scale(1.03);
+      box-shadow: var(--shadow-xl);
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.2, 0.95, 0.4, 1.05);
     }
 
     .gallery-item:hover img {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
 
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 60%);
       opacity: 0;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       display: flex;
       align-items: flex-end;
-      padding: 20px;
+      justify-content: center;
+      padding: 24px;
     }
 
     .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
 
-    /* CTA Cards */
+    .gallery-overlay i {
+      color: white;
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 12px;
+      border-radius: 50%;
+    }
+
+    /* CTA Cards Premium */
     .cta-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
     }
 
     .cta-card {
-      border-radius: 32px;
-      padding: 48px 32px;
+      border-radius: 40px;
+      padding: 56px 40px;
       text-decoration: none;
-      transition: var(--transition);
+      transition: var(--transition-slow);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .cta-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.15), transparent);
       opacity: 0;
-      transition: var(--transition);
+      transition: var(--transition-slow);
     }
 
     .cta-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-12px);
     }
 
     .cta-card:hover::before {
@@ -379,27 +394,26 @@
 
     .cta-card.portfolio {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white;
     }
 
     .cta-card.linkedin {
       background: linear-gradient(135deg, #0a66c2, #004182);
-      color: white;
     }
 
     .cta-icon {
-      font-size: 2.8rem;
-      margin-bottom: 8px;
+      font-size: 3rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
     }
 
     .cta-card h3 {
-      font-size: 1.75rem;
-      font-weight: 700;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
     }
 
     .cta-card p {
-      opacity: 0.85;
-      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
       font-size: 0.95rem;
     }
 
@@ -408,55 +422,67 @@
       align-items: center;
       gap: 10px;
       background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+      padding: 12px 28px;
       border-radius: 100px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.9rem;
-      margin-top: 12px;
-      transition: var(--transition);
+      margin-top: 16px;
+      transition: var(--transition-fast);
       width: fit-content;
       border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
     }
 
     .cta-card:hover .cta-button {
-      gap: 14px;
+      gap: 16px;
       background: rgba(255, 255, 255, 0.3);
     }
 
-    /* Footer */
+    /* Footer com estilo */
     .footer {
-      background: var(--primary-dark);
+      background: linear-gradient(135deg, var(--primary-dark), #0a0f1a);
       color: rgba(255, 255, 255, 0.7);
       text-align: center;
-      padding: 48px 24px;
-      margin-top: 40px;
+      padding: 60px 24px;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--secondary), transparent);
     }
 
     .footer p {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
     .footer strong {
+      color: var(--secondary);
+      font-weight: 800;
+    }
+
+    .footer i {
       color: var(--accent);
-      font-weight: 700;
     }
 
-    /* Scroll reveal animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
+    /* Scroll Reveal */
     .reveal {
       opacity: 0;
-      animation: fadeIn 0.6s ease forwards;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Responsive */
@@ -468,33 +494,39 @@
         padding: 60px 0;
       }
       .card {
-        padding: 24px;
+        padding: 28px;
       }
       .cta-card {
-        padding: 36px 24px;
+        padding: 40px 28px;
+      }
+      .cta-card h3 {
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="bg-decoration"></div>
+<!-- Partículas decorativas -->
+<div class="particles" id="particles"></div>
 
 <!-- Hero Section -->
 <div class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-award"></i> Excelência em Educação
+      <div class="hero-badge reveal">
+        <i class="fas fa-gem"></i> Excelência que Transforma
       </div>
-      <h1>Colégio Estadual<br><span>Unidade Polo</span></h1>
-      <p class="hero-subtitle">
-        Formando cidadãos, construindo futuros — excelência no ensino público estadual com inovação e compromisso social.
+      <h1 class="reveal" style="transition-delay: 0.1s">Colégio Estadual<br><span>Unidade Polo</span></h1>
+      <p class="hero-subtitle reveal" style="transition-delay: 0.2s">
+        Onde o conhecimento encontra a inovação. Formamos líderes, despertamos talentos e construímos o futuro com excelência no ensino público.
       </p>
-      <a href="https://instagram.com/SEU_INSTAGRAM_AQUI" target="_blank" class="instagram-link">
-        <i class="fab fa-instagram"></i> @colegiounidadepolo
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      <div class="reveal" style="transition-delay: 0.3s">
+        <a href="https://instagram.com/SEU_INSTAGRAM_AQUI" target="_blank" class="instagram-link">
+          <i class="fab fa-instagram"></i> @colegiounidadepolo
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -503,40 +535,40 @@
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-tag">Nossa História</div>
+      <div class="section-tag">Nossa Essência</div>
       <h2 class="section-title">Sobre o <span>Colégio</span></h2>
-      <p class="section-subtitle">Conheça nossa estrutura, diferenciais e compromisso com a educação de qualidade</p>
+      <p class="section-subtitle">Estrutura moderna, ensino de ponta e uma comunidade acolhedora</p>
     </div>
     <div class="grid">
-      <div class="card reveal" style="animation-delay: 0.1s">
+      <div class="card reveal" style="transition-delay: 0.05s">
         <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
         <h3>Ensino de Qualidade</h3>
-        <p>Oferecemos Ensino Fundamental e Médio com professores qualificados e metodologias modernas que preparam para o futuro.</p>
+        <p>Oferecemos Ensino Fundamental e Médio com professores qualificados e metodologias modernas que preparam para os desafios do futuro.</p>
       </div>
-      <div class="card reveal" style="animation-delay: 0.2s">
+      <div class="card reveal" style="transition-delay: 0.1s">
         <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
         <h3>Localização</h3>
-        <p>Rua Pavão, 831 — Centro<br>Arapongas – Paraná, CEP 86700215</p>
+        <p>Rua Pavão, 831 — Centro<br>Arapongas – Paraná<br>CEP 86700-215</p>
       </div>
-      <div class="card reveal" style="animation-delay: 0.3s">
+      <div class="card reveal" style="transition-delay: 0.15s">
         <div class="card-icon"><i class="fas fa-clock"></i></div>
         <h3>Horário de Funcionamento</h3>
-        <p>Manhã: 07h30 – 12h45<br>Tarde: 13h30 – 17h25</p>
+        <p>🌅 Manhã: 07h30 – 12h45<br>🌇 Tarde: 13h30 – 17h25</p>
       </div>
-      <div class="card reveal" style="animation-delay: 0.4s">
+      <div class="card reveal" style="transition-delay: 0.2s">
         <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
         <h3>Contato</h3>
-        <p>(43) 3252-2741<br>apsunidadepolo@escola.pr.gov.br</p>
+        <p>📞 (43) 3252-2741<br>✉️ apsunidadepolo@escola.pr.gov.br</p>
       </div>
-      <div class="card reveal" style="animation-delay: 0.5s">
-        <div class="card-icon"><i class="fas fa-users"></i></div>
+      <div class="card reveal" style="transition-delay: 0.25s">
+        <div class="card-icon"><i class="fas fa-heart"></i></div>
         <h3>Nossa Comunidade</h3>
-        <p>Centenas de alunos, professores dedicados e uma gestão comprometida com a excelência educacional.</p>
+        <p>Centenas de alunos, professores dedicados e uma gestão comprometida com a excelência educacional e o bem-estar de todos.</p>
       </div>
-      <div class="card reveal" style="animation-delay: 0.6s">
-        <div class="card-icon"><i class="fas fa-star-of-life"></i></div>
-        <h3>Diferenciais</h3>
-        <p>Curso de DDS e IA, Laboratório de informática, biblioteca, quadra esportiva e projetos extracurriculares inovadores.</p>
+      <div class="card reveal" style="transition-delay: 0.3s">
+        <div class="card-icon"><i class="fas fa-microchip"></i></div>
+        <h3>Diferenciais Inovadores</h3>
+        <p>🔬 Curso de DDS e IA | 💻 Laboratório de informática | 📚 Biblioteca | ⚽ Quadra esportiva | 🎨 Projetos extracurriculares</p>
       </div>
     </div>
   </div>
@@ -548,32 +580,32 @@
     <div class="section-header reveal">
       <div class="section-tag">Memórias</div>
       <h2 class="section-title">Galeria de <span>Fotos</span></h2>
-      <p class="section-subtitle">Momentos especiais e espaços incríveis do nosso colégio</p>
+      <p class="section-subtitle">Espaços incríveis e momentos que marcam nossa história</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item reveal" style="animation-delay: 0.1s">
+      <div class="gallery-item reveal" style="transition-delay: 0.05s">
         <img src="10.png" alt="Estrutura do Colégio">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.2s">
+      <div class="gallery-item reveal" style="transition-delay: 0.1s">
         <img src="20.png" alt="Área Externa">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.3s">
+      <div class="gallery-item reveal" style="transition-delay: 0.15s">
         <img src="30.png" alt="Sala de Aula">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.4s">
+      <div class="gallery-item reveal" style="transition-delay: 0.2s">
         <img src="40.png" alt="Biblioteca">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.5s">
+      <div class="gallery-item reveal" style="transition-delay: 0.25s">
         <img src="50.png" alt="Quadra Esportiva">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.6s">
+      <div class="gallery-item reveal" style="transition-delay: 0.3s">
         <img src="60.png" alt="Laboratório">
-        <div class="gallery-overlay"></div>
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
     </div>
   </div>
@@ -585,16 +617,16 @@
     <div class="section-header reveal">
       <div class="section-tag">Criador</div>
       <h2 class="section-title">Desenvolvido por <span>Mim</span></h2>
-      <p class="section-subtitle">Conheça meu trabalho profissional e conecte-se comigo</p>
+      <p class="section-subtitle">Paixão por tecnologia, design e soluções que impactam vidas</p>
     </div>
     <div class="cta-grid">
-      <a href="index.html" target="_blank" class="cta-card portfolio reveal" style="animation-delay: 0.1s">
+      <a href="index.html" target="_blank" class="cta-card portfolio reveal" style="transition-delay: 0.1s">
         <div class="cta-icon"><i class="fas fa-briefcase"></i></div>
         <h3>Meu Portfólio</h3>
         <p>Explore todos os meus projetos, experimentos e criações no meu portfólio pessoal completo.</p>
         <span class="cta-button">Ver Projetos <i class="fas fa-arrow-right"></i></span>
       </a>
-      <a href="https://www.linkedin.com/feed/" target="_blank" class="cta-card linkedin reveal" style="animation-delay: 0.2s">
+      <a href="https://www.linkedin.com/feed/" target="_blank" class="cta-card linkedin reveal" style="transition-delay: 0.2s">
         <div class="cta-icon"><i class="fab fa-linkedin"></i></div>
         <h3>LinkedIn</h3>
         <p>Conecte-se comigo no LinkedIn, veja minha trajetória profissional e entre em contato.</p>
@@ -608,12 +640,12 @@
 <div class="footer">
   <div class="container">
     <p>© 2025 <strong>Colégio Estadual Unidade Polo</strong> — Todos os direitos reservados.</p>
-    <p style="margin-top: 10px;">Desenvolvido com <i class="fas fa-heart" style="color: var(--accent);"></i> por <strong>Você</strong></p>
+    <p style="margin-top: 12px;">Desenvolvido com <i class="fas fa-heart"></i> por <strong>Você</strong> | Design Premium</p>
   </div>
 </div>
 
 <script>
-  // Scroll reveal animation
+  // Scroll reveal com performance otimizada
   const revealElements = document.querySelectorAll('.reveal');
   
   const revealOnScroll = () => {
@@ -621,9 +653,8 @@
       const elementTop = element.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
       
-      if (elementTop < windowHeight - 100) {
-        element.style.opacity = '1';
-        element.style.animation = 'fadeIn 0.6s ease forwards';
+      if (elementTop < windowHeight - 80) {
+        element.classList.add('revealed');
       }
     });
   };
@@ -631,7 +662,22 @@
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
   
-  // Smooth scroll for anchor links
+  // Partículas dinâmicas
+  const particlesContainer = document.getElementById('particles');
+  for (let i = 0; i < 12; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    const size = Math.random() * 150 + 50;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.animationDelay = `${Math.random() * 20}s`;
+    particle.style.animationDuration = `${15 + Math.random() * 20}s`;
+    particlesContainer.appendChild(particle);
+  }
+  
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
