@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Colégio Estadual Unidade Polo | Excelência que Transforma</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Colégio Estadual Unidade Polo | Excelência que Transforma ✦ Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
@@ -15,125 +15,167 @@
 
     :root {
       --primary: #0a1c3a;
-      --primary-dark: #051023;
-      --primary-light: #132e54;
+      --primary-dark: #040d1f;
+      --primary-light: #1a3f6e;
       --secondary: #f5a623;
       --secondary-dark: #e0910c;
-      --secondary-light: #f7b84d;
+      --secondary-light: #f7c56e;
       --accent: #ff6b6b;
-      --text-dark: #0f172a;
+      --accent-glow: #ff8c8c;
+      --text-dark: #0a0f1c;
       --text-gray: #1e2a3e;
-      --text-light: #2c3e50;
       --bg-white: #ffffff;
-      --bg-glass: rgba(255, 255, 255, 0.85);
+      --glass-light: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.4);
       --shadow-sm: 0 8px 30px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.12);
-      --shadow-xl: 0 40px 80px rgba(0, 0, 0, 0.15);
-      --shadow-glow: 0 0 50px rgba(245, 166, 35, 0.25);
-      --transition-fast: 0.3s cubic-bezier(0.2, 0.95, 0.4, 1.05);
+      --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.2);
+      --shadow-xl: 0 40px 80px rgba(0, 0, 0, 0.25);
+      --shadow-glow: 0 0 30px rgba(245, 166, 35, 0.4);
+      --transition-fast: 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       --transition-slow: 0.5s cubic-bezier(0.2, 0.95, 0.4, 1.05);
+      --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      /* IMAGEM DE FUNDO PRINCIPAL - MUITO MAIS VISÍVEL */
       background: url('20.png') center/cover fixed no-repeat;
       color: var(--text-dark);
       line-height: 1.5;
       overflow-x: hidden;
-      position: relative;
+      cursor: default;
     }
 
-    /* OVERLAY REDUZIDO: menos opacidade e blur mais sutil para destacar a imagem */
+    /* overlay ultra sutil + blur refinado para dar profundidade mantendo imagem viva */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: rgba(248, 250, 252, 0.62);  /* Reduzido de 0.92 para 0.62 -> fundo aparece mais */
-      backdrop-filter: blur(2px); /* blur mínimo (2px) para manter textura da imagem */
+      background: radial-gradient(circle at 30% 20%, rgba(255,250,240,0.55), rgba(248,250,252,0.65));
+      backdrop-filter: blur(3px) brightness(1.02);
       z-index: -2;
     }
 
-    /* Partículas decorativas com tom azul escuro, mas agora mais translúcidas para não esconder o fundo */
+    /* Grade de fundo futurista (grid 3D) */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(10, 28, 58, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10, 28, 58, 0.08) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    /* partículas dinâmicas em movimento com glow */
     .particles {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: -1;
-      overflow: hidden;
     }
 
     .particle {
       position: absolute;
-      background: radial-gradient(circle, #0a1c3a, #020812);
+      background: radial-gradient(circle, #f5a623, #ff6b6b);
       border-radius: 50%;
-      opacity: 0.08; /* reduzi bastante para não poluir visualmente a imagem de fundo */
-      animation: floatParticle 20s infinite ease-in-out;
-      box-shadow: 0 0 20px rgba(10, 28, 58, 0.15);
+      filter: blur(4px);
+      opacity: 0.2;
+      animation: floatParticle 18s infinite alternate ease-in-out;
     }
 
     @keyframes floatParticle {
-      0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-      25% { transform: translateY(-30px) translateX(20px) rotate(90deg); }
-      50% { transform: translateY(20px) translateX(-30px) rotate(180deg); }
-      75% { transform: translateY(-20px) translateX(-20px) rotate(270deg); }
+      0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.1; }
+      100% { transform: translateY(-80px) translateX(40px) scale(1.2); opacity: 0.3; }
     }
 
-    /* Container */
+    /* cursor personalizado efeito (luxo) */
+    .cursor-fx {
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--secondary);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: 0.08s linear;
+      transform: translate(-50%, -50%);
+      backdrop-filter: invert(0.2);
+      mix-blend-mode: difference;
+    }
+
+    /* container principal */
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 32px;
+      position: relative;
+      z-index: 2;
     }
 
-    /* Hero Section - Premium */
+    /* hero section com parallax 3D */
     .hero {
-      min-height: 90vh;
+      min-height: 95vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
-      padding: 100px 24px 120px;
+      padding: 100px 24px 140px;
+      perspective: 800px;
+    }
+
+    .hero-content {
+      transform-style: preserve-3d;
+      animation: heroFloat 6s infinite ease-in-out;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px) rotateX(0deg); }
+      50% { transform: translateY(-8px) rotateX(1deg); }
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-      padding: 8px 24px;
+      padding: 8px 28px;
       border-radius: 100px;
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-weight: 800;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--primary-dark);
       margin-bottom: 32px;
       box-shadow: var(--shadow-glow);
-      animation: pulse 2s infinite;
+      animation: pulseGlow 2s infinite;
+      backdrop-filter: blur(2px);
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4); }
-      50% { box-shadow: 0 0 0 15px rgba(245, 166, 35, 0); }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.6); transform: scale(1); }
+      70% { box-shadow: 0 0 0 15px rgba(245, 166, 35, 0); transform: scale(1.02); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); transform: scale(1); }
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5rem);
-      font-weight: 800;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
       line-height: 1.1;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      background: linear-gradient(135deg, var(--primary-dark), #2c5282, var(--secondary-light));
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       letter-spacing: -0.02em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .hero h1 span {
-      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark), var(--accent));
+      background: linear-gradient(135deg, var(--secondary), #ffbc3c, var(--accent));
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
@@ -144,22 +186,32 @@
     .hero h1 span::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -10px;
       left: 0;
       width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--secondary), transparent);
-      border-radius: 4px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent), transparent);
+      border-radius: 5px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: lineGrow 1.2s ease forwards 0.5s;
+    }
+
+    @keyframes lineGrow {
+      to { transform: scaleX(1); }
     }
 
     .hero-subtitle {
-      font-size: clamp(1rem, 4vw, 1.2rem);
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
       color: var(--text-gray);
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto 40px;
       font-weight: 600;
       line-height: 1.7;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+      background: rgba(255,255,245,0.4);
+      backdrop-filter: blur(8px);
+      padding: 12px 24px;
+      border-radius: 60px;
     }
 
     .instagram-link {
@@ -167,143 +219,106 @@
       align-items: center;
       gap: 12px;
       background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-      padding: 14px 32px;
+      padding: 14px 38px;
       border-radius: 100px;
       color: white;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1rem;
-      transition: var(--transition-fast);
-      box-shadow: 0 8px 25px rgba(131, 58, 180, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition-bounce);
+      box-shadow: 0 10px 30px rgba(131,58,180,0.4);
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .instagram-link:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(131, 58, 180, 0.45);
-      gap: 16px;
+      transform: translateY(-6px) scale(1.05);
+      gap: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
-    /* Section Styles */
+    /* seções com glassmorphism refinado */
     section {
-      padding: 100px 0;
+      padding: 110px 0;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 64px;
+      margin-bottom: 70px;
     }
 
     .section-tag {
       display: inline-block;
       font-size: 0.7rem;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       color: var(--secondary-dark);
-      background: rgba(245, 166, 35, 0.15);
-      backdrop-filter: blur(2px);
-      padding: 6px 16px;
+      background: rgba(245, 166, 35, 0.2);
+      backdrop-filter: blur(5px);
+      padding: 6px 20px;
       border-radius: 100px;
       margin-bottom: 20px;
     }
 
     .section-title {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 800;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      background: linear-gradient(135deg, var(--primary-dark), #1e3a5f);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 20px;
     }
 
     .section-title span {
-      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      background: linear-gradient(135deg, var(--secondary), #ffb347);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
     }
 
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-gray);
-      max-width: 650px;
-      margin: 0 auto;
-      font-weight: 500;
-      background: rgba(255,255,240,0.3);
-      backdrop-filter: blur(1px);
-      padding: 6px 12px;
-      border-radius: 40px;
-    }
-
-    /* Cards com fundo levemente translúcido para realçar a imagem de fundo */
+    /* cards ultra modernos com tilt 3D */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
+      gap: 35px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(8px);
-      border-radius: 32px;
-      padding: 36px;
-      transition: var(--transition-slow);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(245, 166, 35, 0.08), transparent);
-      opacity: 0;
-      transition: var(--transition-slow);
+      background: var(--glass-light);
+      backdrop-filter: blur(12px);
+      border-radius: 40px;
+      padding: 38px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-md);
+      transform-style: preserve-3d;
     }
 
     .card:hover {
-      transform: translateY(-12px) scale(1.01);
+      transform: translateY(-18px) rotateX(3deg) rotateY(2deg);
       box-shadow: var(--shadow-xl);
-      border-color: rgba(245, 166, 35, 0.5);
-      background: rgba(255, 255, 255, 0.94);
-    }
-
-    .card:hover::before {
-      opacity: 1;
+      border-color: var(--secondary);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .card-icon {
-      font-size: 3rem;
-      background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 24px;
+      transition: transform 0.3s;
     }
 
-    .card h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 16px;
+    .card:hover .card-icon {
+      transform: scale(1.1);
     }
 
-    .card p {
-      color: var(--text-gray);
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    /* Gallery com fundo ainda mais transparente para preservar a imagem de fundo */
+    /* galeria com efeito carrossel tilt */
     .gallery {
-      background: linear-gradient(135deg, rgba(10, 28, 58, 0.1), rgba(245, 166, 35, 0.05));
-      backdrop-filter: blur(1px);
-      border-radius: 60px;
+      background: radial-gradient(circle at 10% 20%, rgba(10,28,58,0.15), rgba(245,166,35,0.05));
+      border-radius: 70px;
       margin: 40px 0;
       padding: 80px 0;
     }
@@ -311,48 +326,45 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
+      gap: 28px;
     }
 
     .gallery-item {
       position: relative;
-      border-radius: 28px;
+      border-radius: 36px;
       overflow: hidden;
       aspect-ratio: 4/3;
       cursor: pointer;
       box-shadow: var(--shadow-lg);
-      transition: var(--transition-slow);
-      border: 2px solid rgba(255,215,0,0.2);
+      transition: all 0.5s;
+      transform: scale(1);
     }
 
     .gallery-item:hover {
-      transform: scale(1.03);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--secondary);
+      transform: scale(1.03) translateY(-8px);
+      box-shadow: 0 30px 50px rgba(0,0,0,0.3);
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.2, 0.95, 0.4, 1.05);
+      transition: transform 0.7s ease;
     }
 
     .gallery-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
 
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 60%);
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
       opacity: 0;
-      transition: var(--transition-fast);
+      transition: 0.4s;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      padding: 24px;
     }
 
     .gallery-item:hover .gallery-overlay {
@@ -361,185 +373,127 @@
 
     .gallery-overlay i {
       color: white;
-      font-size: 2rem;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(6px);
-      padding: 12px;
-      border-radius: 50%;
+      font-size: 2.5rem;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      padding: 16px;
+      border-radius: 60px;
     }
 
-    /* CTA Cards com efeito vidro que valoriza o fundo */
+    /* CTA cards animados */
     .cta-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      margin-top: 30px;
+      gap: 45px;
     }
 
     .cta-card {
-      border-radius: 40px;
-      padding: 56px 40px;
+      border-radius: 48px;
+      padding: 58px 40px;
       text-decoration: none;
-      transition: var(--transition-slow);
+      transition: all 0.5s;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,240,0.3);
       position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(12px);
     }
 
-    .cta-card::before {
+    .cta-card::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent);
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
       opacity: 0;
-      transition: var(--transition-slow);
+      transition: 0.5s;
+      transform: rotate(25deg);
     }
 
-    .cta-card:hover {
-      transform: translateY(-12px);
-    }
-
-    .cta-card:hover::before {
-      opacity: 1;
+    .cta-card:hover::after {
+      opacity: 0.3;
     }
 
     .cta-card.portfolio {
-      background: linear-gradient(135deg, rgba(10, 28, 58, 0.85), rgba(19, 46, 84, 0.9));
+      background: linear-gradient(135deg, rgba(10,28,58,0.9), rgba(30,60,100,0.9));
     }
-
     .cta-card.linkedin {
-      background: linear-gradient(135deg, rgba(10, 102, 194, 0.85), rgba(0, 65, 130, 0.9));
+      background: linear-gradient(135deg, rgba(10,102,194,0.9), rgba(0,45,80,0.95));
     }
 
-    .cta-icon {
-      font-size: 3rem;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    .cta-card:hover {
+      transform: translateY(-15px) scale(1.02);
     }
 
-    .cta-card h3 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: white;
-    }
-
-    .cta-card p {
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(12px);
-      padding: 12px 28px;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-top: 16px;
-      transition: var(--transition-fast);
-      width: fit-content;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
-    }
-
-    .cta-card:hover .cta-button {
-      gap: 16px;
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    /* Footer com estilo semi-transparente para manter fundo visível */
+    /* footer animado */
     .footer {
-      background: linear-gradient(135deg, rgba(5, 16, 35, 0.9), rgba(10, 15, 26, 0.95));
-      backdrop-filter: blur(4px);
-      color: rgba(255, 255, 255, 0.85);
+      background: linear-gradient(135deg, rgba(4,13,31,0.95), rgba(10,15,26,0.98));
+      backdrop-filter: blur(8px);
       text-align: center;
-      padding: 60px 24px;
+      padding: 70px 24px;
       margin-top: 60px;
-      position: relative;
-      overflow: hidden;
+      border-top: 1px solid var(--secondary);
     }
 
-    .footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--secondary), transparent);
-    }
-
-    .footer p {
-      font-size: 0.9rem;
-    }
-
-    .footer strong {
-      color: var(--secondary);
-      font-weight: 800;
-    }
-
-    .footer i {
-      color: var(--accent);
-    }
-
-    /* Scroll Reveal */
+    /* scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.9s ease;
     }
-
     .reveal.revealed {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 20px;
-      }
-      section {
-        padding: 60px 0;
-      }
-      .card {
-        padding: 28px;
-      }
-      .cta-card {
-        padding: 40px 28px;
-      }
-      .cta-card h3 {
-        font-size: 1.5rem;
-      }
-      body::before {
-        background: rgba(248, 250, 252, 0.68); /* levemente mais opaco no mobile para contraste */
-      }
+    /* loader incrível */
+    .loader-wrapper {
+      position: fixed;
+      inset: 0;
+      background: #040d1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: opacity 1s ease, visibility 1s;
+    }
+    .loader {
+      width: 70px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(farthest-side, var(--secondary) 94%, #0000) top/10px 10px no-repeat,
+                  conic-gradient(#0000 30%, var(--secondary));
+      mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0);
+      animation: rotateLoader 1s infinite linear;
+    }
+    @keyframes rotateLoader {
+      to { transform: rotate(1turn); }
     }
 
-    /* pequeno ajuste para destacar melhor a imagem da galeria sem perder a visibilidade do fundo */
-    .gallery-item img {
-      filter: brightness(1.02) contrast(1.02);
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .card { padding: 28px; }
+      .cursor-fx { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- Partículas decorativas com opacidade mínima para não competir com a imagem -->
+<div class="loader-wrapper" id="loader">
+  <div class="loader"></div>
+</div>
+
+<div class="grid-bg"></div>
 <div class="particles" id="particles"></div>
+<div class="cursor-fx" id="cursorFx"></div>
 
 <!-- Hero Section -->
 <div class="hero">
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge reveal">
-        <i class="fas fa-gem"></i> Excelência que Transforma
+        <i class="fas fa-crown"></i> Premium • Excelência que Transforma
       </div>
       <h1 class="reveal" style="transition-delay: 0.1s">Colégio Estadual<br><span>Unidade Polo</span></h1>
       <p class="hero-subtitle reveal" style="transition-delay: 0.2s">
@@ -559,162 +513,150 @@
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-tag">Nossa Essência</div>
+      <div class="section-tag">⚡ Nossa Essência</div>
       <h2 class="section-title">Sobre o <span>Colégio</span></h2>
-      <p class="section-subtitle">Estrutura moderna, ensino de ponta e uma comunidade acolhedora</p>
+      <p class="section-subtitle">Infraestrutura futurista, corpo docente de excelência e uma comunidade vibrante</p>
     </div>
     <div class="grid">
-      <div class="card reveal" style="transition-delay: 0.05s">
-        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-        <h3>Ensino de Qualidade</h3>
-        <p>Oferecemos Ensino Fundamental e Médio com professores qualificados e metodologias modernas que preparam para os desafios do futuro.</p>
-      </div>
-      <div class="card reveal" style="transition-delay: 0.1s">
-        <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <h3>Localização</h3>
-        <p>Rua Pavão, 831 — Centro<br>Arapongas – Paraná<br>CEP 86700-215</p>
-      </div>
-      <div class="card reveal" style="transition-delay: 0.15s">
-        <div class="card-icon"><i class="fas fa-clock"></i></div>
-        <h3>Horário de Funcionamento</h3>
-        <p>🌅 Manhã: 07h30 – 12h45<br>🌇 Tarde: 13h30 – 17h25</p>
-      </div>
-      <div class="card reveal" style="transition-delay: 0.2s">
-        <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
-        <h3>Contato</h3>
-        <p>📞 (43) 3252-2741<br>✉️ apsunidadepolo@escola.pr.gov.br</p>
-      </div>
-      <div class="card reveal" style="transition-delay: 0.25s">
-        <div class="card-icon"><i class="fas fa-heart"></i></div>
-        <h3>Nossa Comunidade</h3>
-        <p>Centenas de alunos, professores dedicados e uma gestão comprometida com a excelência educacional e o bem-estar de todos.</p>
-      </div>
-      <div class="card reveal" style="transition-delay: 0.3s">
-        <div class="card-icon"><i class="fas fa-microchip"></i></div>
-        <h3>Diferenciais Inovadores</h3>
-        <p>🔬 Curso de DDS e IA | 💻 Laboratório de informática | 📚 Biblioteca | ⚽ Quadra esportiva | 🎨 Projetos extracurriculares</p>
-      </div>
+      <div class="card reveal"><div class="card-icon"><i class="fas fa-graduation-cap"></i></div><h3>Ensino de Qualidade 5.0</h3><p>Metodologias ativas, ensino híbrido e formação para o século XXI com certificações internacionais.</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Localização Premium</h3><p>Rua Pavão, 831 — Centro<br>Arapongas – Paraná<br>CEP 86700-215</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>Horário Flex</h3><p>🌅 Manhã: 07h30 – 12h45<br>🌇 Tarde: 13h30 – 17h25</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fas fa-phone-alt"></i></div><h3>Canais Diretos</h3><p>📞 (43) 3252-2741<br>✉️ apsunidadepolo@escola.pr.gov.br</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fas fa-heart"></i></div><h3>Comunidade +700 alunos</h3><p>Família unida por uma educação transformadora e inclusiva, com projetos sociais e protagonismo juvenil.</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fas fa-microchip"></i></div><h3>Laboratórios de Inovação</h3><p>🔬 Robótica, Inteligência Artificial, Maker Space, Estúdio de Podcast e muito mais.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Galeria Section -->
+<!-- Galeria turbinada -->
 <div class="gallery">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-tag">Memórias</div>
-      <h2 class="section-title">Galeria de <span>Fotos</span></h2>
-      <p class="section-subtitle">Espaços incríveis e momentos que marcam nossa história</p>
+      <div class="section-tag">📸 Memórias Vivas</div>
+      <h2 class="section-title">Galeria <span>360°</span></h2>
+      <p class="section-subtitle">Espaços inspiradores e momentos que marcaram nossa jornada</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item reveal" style="transition-delay: 0.05s">
-        <img src="10.png" alt="Estrutura do Colégio">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal" style="transition-delay: 0.1s">
-        <img src="20.png" alt="Área Externa">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal" style="transition-delay: 0.15s">
-        <img src="30.png" alt="Sala de Aula">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal" style="transition-delay: 0.2s">
-        <img src="40.png" alt="Biblioteca">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal" style="transition-delay: 0.25s">
-        <img src="50.png" alt="Quadra Esportiva">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal" style="transition-delay: 0.3s">
-        <img src="60.png" alt="Laboratório">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
+      <div class="gallery-item reveal"><img src="10.png" alt="Estrutura"><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+      <div class="gallery-item reveal"><img src="20.png" alt="Área externa"><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+      <div class="gallery-item reveal"><img src="30.png" alt="Sala de aula"><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+      <div class="gallery-item reveal"><img src="40.png" alt="Biblioteca"><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+      <div class="gallery-item reveal"><img src="50.png" alt="Quadra"><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
+      <div class="gallery-item reveal"><img src="60.png" alt="Laboratório"><div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div></div>
     </div>
   </div>
 </div>
 
-<!-- Desenvolvedor Section -->
+<!-- Desenvolvedor - Vitrine premium -->
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-tag">Criador</div>
-      <h2 class="section-title">Desenvolvido por <span>Mim</span></h2>
-      <p class="section-subtitle">Paixão por tecnologia, design e soluções que impactam vidas</p>
+      <div class="section-tag">✨ Criador</div>
+      <h2 class="section-title">Desenvolvido por <span>Visionário</span></h2>
+      <p class="section-subtitle">Tecnologia, design inovador e propósito que transforma experiências</p>
     </div>
     <div class="cta-grid">
-      <a href="index.html" target="_blank" class="cta-card portfolio reveal" style="transition-delay: 0.1s">
-        <div class="cta-icon"><i class="fas fa-briefcase"></i></div>
-        <h3>Meu Portfólio</h3>
-        <p>Explore todos os meus projetos, experimentos e criações no meu portfólio pessoal completo.</p>
-        <span class="cta-button">Ver Projetos <i class="fas fa-arrow-right"></i></span>
+      <a href="index.html" target="_blank" class="cta-card portfolio reveal">
+        <div class="cta-icon"><i class="fas fa-globe-americas"></i></div>
+        <h3>Portfólio Completo</h3>
+        <p>Cases, projetos imersivos e soluções digitais que criam impacto real.</p>
+        <span class="cta-button">Explorar agora <i class="fas fa-arrow-right"></i></span>
       </a>
-      <a href="https://www.linkedin.com/feed/" target="_blank" class="cta-card linkedin reveal" style="transition-delay: 0.2s">
+      <a href="https://www.linkedin.com/feed/" target="_blank" class="cta-card linkedin reveal">
         <div class="cta-icon"><i class="fab fa-linkedin"></i></div>
-        <h3>LinkedIn</h3>
-        <p>Conecte-se comigo no LinkedIn, veja minha trajetória profissional e entre em contato.</p>
+        <h3>LinkedIn Estratégico</h3>
+        <p>Vamos construir conexões valiosas e oportunidades transformadoras.</p>
         <span class="cta-button">Conectar <i class="fas fa-arrow-right"></i></span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer moderno -->
 <div class="footer">
   <div class="container">
-    <p>© 2025 <strong>Colégio Estadual Unidade Polo</strong> — Todos os direitos reservados.</p>
-    <p style="margin-top: 12px;">Desenvolvido com <i class="fas fa-heart"></i> por <strong>Você</strong> | Design Premium</p>
+    <p>© 2025 <strong>Colégio Estadual Unidade Polo</strong> — Excelência e Inovação.</p>
+    <p style="margin-top: 15px;">Desenvolvido com <i class="fas fa-bolt"></i> e <i class="fas fa-heart" style="color:#ff6b6b;"></i> por <strong>Time Visionário</strong> | Design Hi-Tech</p>
   </div>
 </div>
 
 <script>
-  // Scroll reveal com performance otimizada
-  const revealElements = document.querySelectorAll('.reveal');
-  
-  const revealOnScroll = () => {
-    revealElements.forEach(element => {
-      const elementTop = element.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      
-      if (elementTop < windowHeight - 80) {
-        element.classList.add('revealed');
+  // loader ocultar
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      loader.style.visibility = 'hidden';
+    }, 800);
+  });
+
+  // scroll reveal avançado
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
       }
     });
-  };
-  
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll);
-  
-  // Partículas dinâmicas com opacidade bem suave para não ofuscar a imagem
-  const particlesContainer = document.getElementById('particles');
-  for (let i = 0; i < 20; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    const size = Math.random() * 140 + 40;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.top = `${Math.random() * 100}%`;
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.animationDelay = `${Math.random() * 20}s`;
-    particle.style.animationDuration = `${12 + Math.random() * 25}s`;
-    particle.style.background = `radial-gradient(circle, #0a1c3a, #02050f)`;
-    particle.style.opacity = '0.07';
-    particle.style.boxShadow = '0 0 25px rgba(2, 5, 15, 0.2)';
-    particlesContainer.appendChild(particle);
+  }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // partículas dinâmicas coloridas
+  const partContainer = document.getElementById('particles');
+  for (let i=0; i<26; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    let size = Math.random() * 120 + 30;
+    p.style.width = `${size}px`;
+    p.style.height = `${size}px`;
+    p.style.top = `${Math.random() * 100}%`;
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.animationDuration = `${12 + Math.random() * 20}s`;
+    p.style.animationDelay = `${Math.random() * 8}s`;
+    p.style.background = `radial-gradient(circle, #f5a623, #ff6b6b, #ffbc3c)`;
+    p.style.opacity = '0.12';
+    partContainer.appendChild(p);
   }
-  
-  // Smooth scroll para links internos (se houver)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+
+  // cursor personalizado suave
+  const cursor = document.getElementById('cursorFx');
+  document.addEventListener('mousemove', (e) => {
+    if (cursor) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    }
+  });
+
+  document.querySelectorAll('a, .card, .gallery-item, .cta-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
+    });
+    el.addEventListener('mouseleave', () => {
+      if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  });
+
+  // parallax no hero
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+      hero.style.opacity = 1 - scrolled * 0.002;
+    }
+  });
+
+  // efeito de texto animado nos cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
     });
   });
 </script>
-
 </body>
 </html>
