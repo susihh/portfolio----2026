@@ -1,0 +1,11 @@
+soma = 0
+cont = 0
+while True:
+    n = int ( input ('digite um numero:'))
+    soma = soma + n
+    cont = cont + 1
+    opcao = str(input('deseja adicionar mais um numero? [S/N] ')).strip().upper()
+    if opcao == 'N':
+        break
+
+input(f' a media aritimetica é: {soma / cont}')

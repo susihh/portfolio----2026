@@ -1,0 +1,2 @@
+n = int ( input ('digite o valor para dolar:')) 
+print(f'US${n / 5.14:2f}')
