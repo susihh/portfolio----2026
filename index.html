@@ -4,205 +4,269 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Susana</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f0ff;
+      --bg: #f8f6fc;
       --card-bg: #ffffff;
-      --text: #2d2d2d;
-      --subtext: #666;
-      --accent: #a855f7;
+      --text: #1e1b2e;
+      --subtext: #64748b;
+      --accent: #8b5cf6;
       --accent2: #ec4899;
-      --shadow: rgba(168,85,247,0.15);
+      --shadow: rgba(139, 92, 246, 0.08);
+      --card-border: rgba(139, 92, 246, 0.12);
     }
     body.dark {
-      --bg: #0f0f1a;
-      --card-bg: #1a1a2e;
-      --text: #f0f0f0;
-      --subtext: #aaa;
-      --shadow: rgba(168,85,247,0.3);
+      --bg: #09090f;
+      --card-bg: #13131f;
+      --text: #f1f5f9;
+      --subtext: #94a3b8;
+      --shadow: rgba(139, 92, 246, 0.15);
+      --card-border: rgba(139, 92, 246, 0.2);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--text);
-      transition: background 0.4s, color 0.4s;
+      transition: background 0.4s ease, color 0.4s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ── HEADER ── */
     header {
       position: relative;
       text-align: center;
-      padding: 5rem 1rem 4rem;
-      background: linear-gradient(135deg, #FF00E2 0%, #a855f7 45%, #6366f1 75%, #38bdf8 100%);
+      padding: 4.5rem 1rem 3.5rem;
+      background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 50%, #3b82f6 100%);
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
     }
     header::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
     .avatar-wrapper {
       position: relative;
       display: inline-block;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
     .avatar-wrapper img {
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 5px solid rgba(255,255,255,0.8);
-      box-shadow: 0 0 0 8px rgba(255,255,255,0.15), 0 8px 30px rgba(0,0,0,0.3);
+      border: 4px solid rgba(255,255,255,0.9);
+      box-shadow: 0 0 0 6px rgba(255,255,255,0.2), 0 10px 25px rgba(0,0,0,0.25);
       object-fit: cover;
       display: block;
     }
-    .avatar-ring {
-      position: absolute;
-      inset: -10px;
-      border-radius: 50%;
-      border: 2px dashed rgba(255,255,255,0.5);
-      animation: spin 12s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    header h1 { font-size: 2.8rem; font-weight: 700; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-    header p  { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-top: 0.4rem; font-weight: 300; }
+    header h1 { font-size: 2.5rem; font-weight: 700; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+    header p  { font-size: 1rem; color: rgba(255,255,255,0.9); margin-top: 0.3rem; font-weight: 300; }
 
-    /* ── CONTROLS ── */
-    .controls {
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      margin: 2.5rem 1rem 0;
-      flex-wrap: wrap;
+    /* ── CONTROLS & FILTERS ── */
+    .controls-container {
+      max-width: 1080px;
+      margin: -1.8rem auto 1.5rem;
+      padding: 0 1.2rem;
+      position: relative;
+      z-index: 10;
     }
-    .search-wrap { position: relative; flex: 1; max-width: 440px; }
-    .search-wrap svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; pointer-events: none; }
+    .search-and-theme {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .search-wrap { position: relative; flex: 1; }
+    .search-wrap svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--subtext); pointer-events: none; }
     input[type="text"] {
       width: 100%;
-      padding: 0.75rem 1rem 0.75rem 2.8rem;
-      border-radius: 50px;
-      border: 2px solid transparent;
+      padding: 0.85rem 1rem 0.85rem 3rem;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
       background: var(--card-bg);
       color: var(--text);
       font-family: 'Poppins', sans-serif;
       font-size: 0.95rem;
-      box-shadow: 0 4px 15px var(--shadow);
-      transition: border 0.3s;
+      box-shadow: 0 8px 25px var(--shadow);
+      transition: all 0.3s ease;
       outline: none;
     }
-    input[type="text"]:focus { border-color: var(--accent); }
+    input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 8px 30px rgba(139, 92, 246, 0.2); }
+    
     .icon-btn {
-      padding: 0.75rem 1.4rem;
+      padding: 0.85rem 1.4rem;
       border: none;
-      border-radius: 50px;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #fff;
       cursor: pointer;
       font-weight: 600;
       font-family: 'Poppins', sans-serif;
       font-size: 0.9rem;
-      box-shadow: 0 4px 15px var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 25px var(--shadow);
+      transition: transform 0.2s, opacity 0.2s;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      white-space: nowrap;
     }
-    .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow); }
+    .icon-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
-    /* ── SECTION TITLE ── */
-    .section-title { text-align: center; margin: 2.5rem 0 0.5rem; font-size: 1.5rem; font-weight: 700; }
+    /* Category Filter Pills */
+    .category-filters {
+      display: flex;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+    .category-filters::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--card-border);
+      border-radius: 50px;
+      background: var(--card-bg);
+      color: var(--subtext);
+      cursor: pointer;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px var(--shadow);
+      white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--text); border-color: var(--accent); }
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-info {
+      max-width: 1080px;
+      margin: 1.5rem auto 1rem;
+      padding: 0 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
     .section-title span {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .divider {
-      display: block; width: 60px; height: 4px; border-radius: 4px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      margin: 0.5rem auto 2rem;
-    }
     .project-count {
-      text-align: center;
       font-size: 0.85rem;
       color: var(--subtext);
-      margin-top: -1.5rem;
-      margin-bottom: 2rem;
+      font-weight: 500;
     }
 
     /* ── GRID ── */
     main {
       max-width: 1080px;
+      width: 100%;
       margin: 0 auto;
-      padding: 0 1.2rem 6rem;
+      padding: 0 1.2rem 5rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.6rem;
+      gap: 1.4rem;
+      flex: 1;
     }
 
     /* ── CARDS ── */
     .card {
       background: var(--card-bg);
-      border-radius: 18px;
-      padding: 1.8rem;
-      box-shadow: 0 6px 20px var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(168,85,247,0.1);
-      animation: riseUp 0.6s forwards;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: riseUp 0.5s forwards;
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(20px);
     }
-    .card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
+      border-color: rgba(139, 92, 246, 0.3);
     }
-    .card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 35px var(--shadow); }
+    .card-top { margin-bottom: 1rem; }
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
     .card-icon {
-      width: 46px; height: 46px; border-radius: 12px;
+      width: 42px; height: 42px; border-radius: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
     }
-    .card h2 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; line-height: 1.4; }
-    .card p  { font-size: 0.9rem; color: var(--subtext); line-height: 1.6; margin-bottom: 1.2rem; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .card-tag {
+      background: rgba(139, 92, 246, 0.1);
+      color: var(--accent);
+      font-size: 0.7rem; font-weight: 600;
+      padding: 0.25rem 0.7rem; border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; line-height: 1.3; }
+    .card p  { font-size: 0.88rem; color: var(--subtext); line-height: 1.5; margin-bottom: 1.2rem; }
+    
+    .card-footer { display: flex; align-items: center; justify-content: flex-end; }
     .card a {
       display: inline-flex; align-items: center; gap: 0.4rem;
       color: #fff;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      text-decoration: none; font-weight: 600; font-size: 0.82rem;
-      padding: 0.48rem 1rem; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 0.8rem;
+      padding: 0.5rem 1.1rem; border-radius: 50px;
       transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
     }
-    .card a:hover { opacity: 0.85; transform: translateX(2px); }
-    .card-tag {
-      position: absolute; top: 1rem; right: 1rem;
-      background: rgba(168,85,247,0.1);
-      color: var(--accent);
-      font-size: 0.7rem; font-weight: 600;
-      padding: 0.2rem 0.7rem; border-radius: 50px;
-    }
+    .card a:hover { opacity: 0.9; transform: translateX(2px); }
 
-    /* No results */
-    #noResults { display: none; text-align: center; grid-column: 1 / -1; color: var(--subtext); padding: 3rem 0; }
+    /* No results state */
+    #noResults {
+      display: none;
+      text-align: center;
+      grid-column: 1 / -1;
+      color: var(--subtext);
+      padding: 4rem 0;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px dashed var(--card-border);
+    }
     #noResults span { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
 
     /* ── FOOTER ── */
     footer {
-      text-align: center; padding: 2.5rem 1rem;
-      background: var(--card-bg); font-size: 0.88rem; color: var(--subtext);
-      border-top: 1px solid rgba(168,85,247,0.15);
+      text-align: center; padding: 2rem 1rem;
+      background: var(--card-bg); font-size: 0.85rem; color: var(--subtext);
+      border-top: 1px solid var(--card-border);
+      margin-top: auto;
     }
-    .social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; }
+    .social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 0.8rem; }
     .social-links a {
-      width: 38px; height: 38px; border-radius: 50%;
+      width: 36px; height: 36px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #fff; display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; text-decoration: none; transition: transform 0.2s;
+      font-size: 0.95rem; text-decoration: none; transition: transform 0.2s;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
     }
     .social-links a:hover { transform: translateY(-3px); }
 
@@ -211,115 +275,134 @@
 </head>
 <body>
 
-  <div class="controls">
-    <div class="search-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/>
-      </svg>
-      <input type="text" id="search" placeholder="Buscar projeto...">
+  <header>
+    <div class="avatar-wrapper">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Avatar Susana">
     </div>
-    <button class="icon-btn" id="toggleTheme">
-      <span id="themeIcon">🌙</span> Tema
-    </button>
+    <h1>Susana</h1>
+    <p>Portfólio de Projetos &bull; Códigos, Apresentações e Links</p>
+  </header>
+
+  <div class="controls-container">
+    <div class="search-and-theme">
+      <div class="search-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/>
+        </svg>
+        <input type="text" id="search" placeholder="Pesquisar por projeto, tecnologia ou assunto...">
+      </div>
+      <button class="icon-btn" id="toggleTheme">
+        <span id="themeIcon">🌙</span> Tema
+      </button>
+    </div>
+
+    <div class="category-filters" id="categoryFilters">
+      <button class="filter-btn active" data-category="all">Todos</button>
+      <button class="filter-btn" data-category="codigo">💻 Códigos</button>
+      <button class="filter-btn" data-category="apresentacao">📊 Apresentações</button>
+      <button class="filter-btn" data-category="link">🔗 Links & Apps</button>
+    </div>
   </div>
 
-  <h2 class="section-title">Meus <span>Projetos</span></h2>
-  <span class="divider"></span>
-  <p class="project-count" id="projectCount"></p>
+  <div class="section-info">
+    <h2 class="section-title">Explorar <span>Projetos</span></h2>
+    <p class="project-count" id="projectCount"></p>
+  </div>
 
   <main id="projetos">
     <div id="noResults">
       <span>🔍</span>
-      Nenhum projeto encontrado.
+      Nenhum projeto encontrado com esses critérios.
     </div>
   </main>
 
   <footer>
     <div class="social-links">
       <a href="https://github.com/susihh" target="_blank" title="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
         </svg>
       </a>
       <a href="#" title="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
         </svg>
       </a>
     </div>
-    <p>© 2026 <strong>Susana</strong> · Feito com 💜 e muito código</p>
+    <p>© 2026 <strong>Susana</strong> &bull; Feito com 💜 e muito código</p>
   </footer>
 
   <script>
     /* ─────────────────────────────────────────
-       DADOS DOS PROJETOS (Edite diretamente aqui)
+       DADOS DOS PROJETOS (Organizados por Categoria)
     ───────────────────────────────────────── */
     const PROJECTS = [
-      { id: 1, title: 'Projeto 1 — JavaScript',             desc: 'Primeiros passos no back-end com JavaScript. Explorando lógica, funções e estruturas de dados.',       link: 'https://github.com/susihh/inicio-backend',                                                                       linkLabel: '🔗 Ver no GitHub',           icon: '⚡', tag: 'Código' },
-      { id: 2, title: 'Projeto 2 — Propriedade Intelectual', desc: 'Protegendo a inovação e a criatividade — uma análise sobre direitos autorais e patentes.',            link: 'https://gamma.app/docs/Untitled-rqdm8o5hxt34jbd',                                                                linkLabel: '📊 Ver Apresentação',        icon: '🛡️', tag: 'Apresentação' },
-      { id: 3, title: 'Projeto 3 — Agenda Escolar',          desc: 'O papel essencial da agenda na organização do aluno — produtividade e planejamento escolar.',         link: 'https://gamma.app/docs/O-Papel-Essencial-da-Agenda-na-Organizacao-do-Aluno-p4n5jm6sjg3y83y',                     linkLabel: '📊 Ver Apresentação',        icon: '📅', tag: 'Apresentação' },
-      { id: 4, title: 'Projeto 4 — Ecossistema de Startups', desc: 'O cenário global de inovação — tendências, desafios e oportunidades para empreendedores.',            link: 'https://gamma.app/docs/O-Ecossistema-de-Startups-em-2026-vfy98basn80knwh',                                       linkLabel: '📊 Ver Apresentação',        icon: '🚀', tag: 'Apresentação' },
-      { id: 5, title: 'Projeto 5 — Álbum da Copa do Mundo', desc: 'Figurinhas, coleções e nostalgia! Um álbum digital interativo da Copa do Mundo.',                      link: 'https://susihh.github.io/copa-do-mundo-/index..html.html',                                                       linkLabel: '🔗 Ver no GitHub',           icon: '⚽', tag: 'Código' },
-      { id: 6, title: 'Projeto 6 — Meu Primeiro App com Expo',  desc: 'Aprendendo a Usar o Snack Expo - testando',                                                        link: 'https://github.com/susihh/text-app-',                                                                            linkLabel: '🔗 Ver no GitHub',           icon: '⚡', tag: 'código' },
-      { id: 7, title: 'Projeto 7 — APP de Troca de Imagens no Expo',  desc: 'Projeto de aprendisado expo',                                                                link: 'https://github.com/susihh/snack.expo',                                                                           linkLabel: '🔗 Ver no GitHub',           icon: '💻', tag: 'código' }, 
-      { id: 8, title: 'Projeto 8 — 2.cliente João',  desc: 'Informações do dados',                                                                                        documento: '2.cliente.json',                                                                                            documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 9, title: 'Projeto 9 — 2.leitura João',  desc: 'definindo dados em cod',                                                                                      documento: '2.leitura.js',                                                                                              documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 10, title: 'Projeto 10 — Alterar',  desc: 'Luma informações, outra pessoa',                                                                                   documento: 'alterar.js',                                                                                                documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 11, title: 'Projeto 11 — Array',  desc: 'Dados da Frutaria',                                                                                                  documento: 'array.js',                                                                                                  documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 12, title: 'Projeto 12 — Brake-continue',  desc: 'Dados do Estacionamento',                                                                                   documento: 'brake_continue.js',                                                                                         documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 13, title: 'Projeto 13 — Carros',  desc: 'Km por hora percorrido',                                                                                            documento: 'carro.js',                                                                                                  documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 14, title: 'Projeto 14 — Colchete',  desc: 'Informações Andre',                                                                                               documento: 'colchete.js',                                                                                               documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 15, title: 'Projeto 15 — Conjunto Numeros',  desc: 'Calcular Medida',                                                                                         documento: 'conjuntonumeros.js',                                                                                        documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 16, title: 'Projeto 16 — filtrar',  desc: 'Usuários. Carlos / Ana / Felipe',                                                                                  documento: 'filtrar.js',                                                                                                documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 17, title: 'Projeto 17 — Olá palavras',  desc: 'Testes JavaScript',                                                                                           documento: 'hello word.html',                                                                                           documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 18, title: 'Projeto 18 — Olá word',  desc: 'executando',                                                                                                      documento: 'hello word.js',                                                                                             documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 19, title: 'Projeto 19 — Lista de Livros',  desc: 'Nome e Valor',                                                                                             documento: 'listaLivros.js',                                                                                            documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 20, title: 'Projeto 20 — Média Robison',  desc: 'Aprovado/Reprovado',                                                                                         documento: 'media_se.js',                                                                                               documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 21, title: 'Projeto 21 — Notas Pedro',  desc: 'Resultado',                                                                                                    documento: 'notas.js',                                                                                                  documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 22, title: 'Projeto 22 — Objeto2',  desc: 'Informações Pessoa - Jose',                                                                                        documento: 'objet2.js',                                                                                                 documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 23, title: 'Projeto 23 — Objeto',  desc: 'Idade. Pessoa - Maria',                                                                                             documento: 'objeto.js',                                                                                                 documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 24, title: 'Projeto 24 — Operações',  desc: 'Multiplicação',                                                                                                  documento: 'operacoes basicas.js',                                                                                      documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 25, title: 'Projeto 25 — Ordenando',  desc: 'O livro mais barato custa ?',                                                                                    documento: 'ordenando.js',                                                                                              documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 26, title: 'Projeto 26 — SelectionSort',  desc: '( ARR )',                                                                                                    documento: 'selectionSort.js',                                                                                          documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 27, title: 'Projeto 27 — Substring',  desc: 'Informações Andre',                                                                                              documento: 'substring.js',                                                                                              documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 28, title: 'Projeto 28 — Triangulo2',  desc: 'O Valor da Área é',                                                                                             documento: 'triangulo 2.js',                                                                                            documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 29, title: 'Projeto 29 — Triangulo3',  desc: 'Resultado da Equação / Delta é',                                                                                documento: 'triangulo 3.js',                                                                                            documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 30, title: 'Projeto 30 — Usando Break',  desc: 'Ferramentas',                                                                                                 documento: 'usando break.js',                                                                                           documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 31, title: 'Projeto 31 — Usando For',  desc: 'Notas / soma / media / numero',                                                                                 documento: 'usando for.js',                                                                                             documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 32, title: 'Projeto 32 — Variáveis',  desc: 'Calculando',                                                                                                     documento: 'variaveis.js',                                                                                              documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 33, title: 'Projeto 33 — Pesquisa',  desc: 'melhores IA,s de 2026',                                                                                           link: 'https://notebooklm.google.com/notebook/1aeaca98-67e8-4603-968e-89d786132182/artifact/e0ffb7dc-1e06-4798-ac65-22d82a022705?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_',               linkLabel: '🔗 Ver nonotebooklm',           icon: '📱', tag: 'Código' }, 
-      { id: 34, title: 'Projeto 34 — Analise',  desc: 'Professor Robô',                                                                                                   documento: 'https://notebooklm.google.com/notebook/e25b0040-010f-4c2b-98dd-2babfbe1a2cb/artifact/675d7c5d-365e-46ff-b39b-b37000105065?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_',          documentoLabel: '📄 Ver nonotebooklm',      icon: '🔬', tag: 'código' }, 
-      { id: 35, title: 'Projeto 35 — Linkedin',  desc: 'cadastro de currículo',                                                                                           link: 'https://www.linkedin.com/feed/',                                                                                 linkLabel: '🔗 Ver no linkedin',           icon: '📄', tag: 'link' },             
-      { id: 36, title: 'Projeto 36 — Pet Shop',  desc: 'site de agendamento',                                                                                             link: 'https://tomato-paw-care-flow.base44.app',                                                                        linkLabel: '🔗 Ver link',           icon: '📅', tag: 'Código' },
-      { id: 37, title: 'Projeto 37 — CodeDS',  desc: 'site de aprendizado de DDS',                                                                                        link: 'https://dds-flow-master.base44.app',                                                                             linkLabel: '🔗 Ver link',           icon: '📊', tag: 'link' },             
-      { id: 38, title: 'Projeto 38 — FinControl',  desc: 'controle de finanças pessoais',                                                                                 link: 'https://spiritual-fin-flow-go.base44.app',                                                                       linkLabel: '🔗 Ver link',           icon: '📊', tag: 'link' },
-      { id: 39, title: 'Projeto 39 — Turma Gentil',  desc: 'controle escolar',                                                                                            link: 'https://mimo-escola-fcil.base44.app',                                                                            linkLabel: '🔗 Ver link',           icon: '🌍', tag: 'link' },    
-      { id: 40, title: 'Projeto 40 — Abastecer+',  desc: 'Controle de Abastecimento ( veículos )',                                                                        link: 'https://meu-tanque-flow.base44.app',                                                                             linkLabel: '🔗 Ver link',           icon: '⚡', tag: 'link' },
-      { id: 41, title: 'Projeto 41 — mymoney',  desc: 'Controle de dinheiro',                                                                                             link: 'https://mymoney-copy-cd4a299d.base44.app',                                                                       linkLabel: '🔗 Ver link',           icon: '📊', tag: 'link' },     
-      { id: 42, title: 'Projeto 42 — locadora de veículos',  desc: 'aluge seu veículo',                                                                                   link: 'https://terra-trek-hub.base44.app/',                                                                             linkLabel: '🔗 Ver link',           icon: '💡', tag: 'link' },             
-      { id: 43, title: 'Projeto 43 — calcule a área',  desc: 'python ',                                                                                                   documento: 'calcule a área.py',                                                                                         documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },             
-      { id: 44, title: 'Projeto 44 — conversor de dados',  desc: 'python ',                                                                                               documento: 'conversor de dados',                                                                                        documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },             
-      { id: 45, title: 'Projeto 45 — conversor de medidas',  desc: 'python ',                                                                                             documento: 'conversor de medidas',                                                                                      documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },,             
-      { id: 46, title: 'Projeto 46 — Formação de Triângulo',  desc: 'python ',                                                                                            documento: 'Formação de Triângulo.py',                                                                                  documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 47, title: 'Projeto 47 — IMPAR, PAR',  desc: 'python ',                                                                                                       documento: 'IMPAR, PAR.py',                                                                                             documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 48, title: 'Projeto 48 — import random',  desc: 'python ',                                                                                                    documento: 'import random.py',                                                                                          documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 49, title: 'Projeto 49 — import',  desc: 'python ',                                                                                                           documento: 'import.py',                                                                                                 documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 50, title: 'Projeto 50 — leia o numero',  desc: 'python ',                                                                                                    documento: 'leia o numero.py',                                                                                          documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 51, title: 'Projeto 51 — media aritimetica',  desc: 'python ',                                                                                                documento: 'media aritimetica',                                                                                         documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 52, title: 'Projeto 52 — nome completo',  desc: 'python ',                                                                                                    documento: 'nome completo.py',                                                                                          documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 53, title: 'Projeto 53 — preço do produto',  desc: 'python ',                                                                                                 documento: 'preço do produto.py',                                                                                       documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 54, title: 'Projeto 54 — raiz quadrada',  desc: 'python ',                                                                                                    documento: 'raiz quadrada',                                                                                             documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 55, title: 'Projeto 55 — tempo',  desc: 'python ',                                                                                                            documento: 'tempo.py',                                                                                                  documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 56, title: 'Projeto 56 — teste',  desc: 'python ',                                                                                                            documento: 'teste.py',                                                                                                  documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 57, title: 'Projeto 57 — teste.pyt',  desc: 'python ',                                                                                                        documento: 'teste.pyt',                                                                                                 documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 58, title: 'Projeto 58 — trabalhar  com modulos',  desc: 'python ',                                                                                           documento: 'trabalhar  com modulos',                                                                                    documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 59, title: 'Projeto 59 — transformação',  desc: 'python ',                                                                                                    documento: 'transformação.py',                                                                                          documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 60, title: 'Projeto 60 — viagem',  desc: 'python ',                                                                                                           documento: 'viagem.py',                                                                                                 documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 61, title: 'Projeto 61 — aumento salarial',  desc: 'python ',                                                                                                 documento: 'aumento salarial.py',                                                                                       documentoLabel: '📄 Ver Documento',      icon: '💻', tag: 'código' },
-      { id: 62, title: 'Projeto 62 — app academia',  desc: 'gerenciamento do cliente',                                                                                    link: 'https://susihh.github.io/app-academia/telainicial.html',                                                                           linkLabel: '🔗 Ver link',           icon: '📊', tag: 'link' },
+      { id: 1, title: 'Projeto 1 — JavaScript', desc: 'Primeiros passos no back-end com JavaScript. Explorando lógica, funções e estruturas de dados.', link: 'https://github.com/susihh/inicio-backend', linkLabel: '🔗 Ver no GitHub', icon: '⚡', category: 'codigo', tag: 'Código' },
+      { id: 2, title: 'Projeto 2 — Propriedade Intelectual', desc: 'Protegendo a inovação e a criatividade — uma análise sobre direitos autorais e patentes.', link: 'https://gamma.app/docs/Untitled-rqdm8o5hxt34jbd', linkLabel: '📊 Ver Apresentação', icon: '🛡️', category: 'apresentacao', tag: 'Apresentação' },
+      { id: 3, title: 'Projeto 3 — Agenda Escolar', desc: 'O papel essencial da agenda na organização do aluno — produtividade e planejamento escolar.', link: 'https://gamma.app/docs/O-Papel-Essencial-da-Agenda-na-Organizacao-do-Aluno-p4n5jm6sjg3y83y', linkLabel: '📊 Ver Apresentação', icon: '📅', category: 'apresentacao', tag: 'Apresentação' },
+      { id: 4, title: 'Projeto 4 — Ecossistema de Startups', desc: 'O cenário global de inovação — tendências, desafios e oportunidades para empreendedores.', link: 'https://gamma.app/docs/O-Ecossistema-de-Startups-em-2026-vfy98basn80knwh', linkLabel: '📊 Ver Apresentação', icon: '🚀', category: 'apresentacao', tag: 'Apresentação' },
+      { id: 5, title: 'Projeto 5 — Álbum da Copa do Mundo', desc: 'Figurinhas, coleções e nostalgia! Um álbum digital interativo da Copa do Mundo.', link: 'https://susihh.github.io/copa-do-mundo-/index..html.html', linkLabel: '🔗 Ver no GitHub', icon: '⚽', category: 'codigo', tag: 'Código' },
+      { id: 6, title: 'Projeto 6 — Meu Primeiro App com Expo', desc: 'Aprendendo a Usar o Snack Expo - testando', link: 'https://github.com/susihh/text-app-', linkLabel: '🔗 Ver no GitHub', icon: '⚡', category: 'codigo', tag: 'Código' },
+      { id: 7, title: 'Projeto 7 — APP de Troca de Imagens no Expo', desc: 'Projeto de aprendisado expo', link: 'https://github.com/susihh/snack.expo', linkLabel: '🔗 Ver no GitHub', icon: '💻', category: 'codigo', tag: 'Código' }, 
+      { id: 8, title: 'Projeto 8 — 2.cliente João', desc: 'Informações do dados', documento: '2.cliente.json', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 9, title: 'Projeto 9 — 2.leitura João', desc: 'definindo dados em cod', documento: '2.leitura.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 10, title: 'Projeto 10 — Alterar', desc: 'Luma informações, outra pessoa', documento: 'alterar.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 11, title: 'Projeto 11 — Array', desc: 'Dados da Frutaria', documento: 'array.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 12, title: 'Projeto 12 — Brake-continue', desc: 'Dados do Estacionamento', documento: 'brake_continue.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 13, title: 'Projeto 13 — Carros', desc: 'Km por hora percorrido', documento: 'carro.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 14, title: 'Projeto 14 — Colchete', desc: 'Informações Andre', documento: 'colchete.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 15, title: 'Projeto 15 — Conjunto Numeros', desc: 'Calcular Medida', documento: 'conjuntonumeros.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 16, title: 'Projeto 16 — filtrar', desc: 'Usuários. Carlos / Ana / Felipe', documento: 'filtrar.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 17, title: 'Projeto 17 — Olá palavras', desc: 'Testes JavaScript', documento: 'hello word.html', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 18, title: 'Projeto 18 — Olá word', desc: 'executando', documento: 'hello word.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 19, title: 'Projeto 19 — Lista de Livros', desc: 'Nome e Valor', documento: 'listaLivros.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 20, title: 'Projeto 20 — Média Robison', desc: 'Aprovado/Reprovado', documento: 'media_se.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 21, title: 'Projeto 21 — Notas Pedro', desc: 'Resultado', documento: 'notas.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 22, title: 'Projeto 22 — Objeto2', desc: 'Informações Pessoa - Jose', documento: 'objet2.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 23, title: 'Projeto 23 — Objeto', desc: 'Idade. Pessoa - Maria', documento: 'objeto.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 24, title: 'Projeto 24 — Operações', desc: 'Multiplicação', documento: 'operacoes basicas.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 25, title: 'Projeto 25 — Ordenando', desc: 'O livro mais barato custa ?', documento: 'ordenando.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 26, title: 'Projeto 26 — SelectionSort', desc: '( ARR )', documento: 'selectionSort.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 27, title: 'Projeto 27 — Substring', desc: 'Informações Andre', documento: 'substring.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 28, title: 'Projeto 28 — Triangulo2', desc: 'O Valor da Área é', documento: 'triangulo 2.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 29, title: 'Projeto 29 — Triangulo3', desc: 'Resultado da Equação / Delta é', documento: 'triangulo 3.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 30, title: 'Projeto 30 — Usando Break', desc: 'Ferramentas', documento: 'usando break.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 31, title: 'Projeto 31 — Usando For', desc: 'Notas / soma / media / numero', documento: 'usando for.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 32, title: 'Projeto 32 — Variáveis', desc: 'Calculando', documento: 'variaveis.js', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 33, title: 'Projeto 33 — Pesquisa', desc: 'melhores IA,s de 2026', link: 'https://notebooklm.google.com/notebook/1aeaca98-67e8-4603-968e-89d786132182/artifact/e0ffb7dc-1e06-4798-ac65-22d82a022705?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_', linkLabel: '🔗 Ver nonotebooklm', icon: '📱', category: 'codigo', tag: 'Código' }, 
+      { id: 34, title: 'Projeto 34 — Analise', desc: 'Professor Robô', documento: 'https://notebooklm.google.com/notebook/e25b0040-010f-4c2b-98dd-2babfbe1a2cb/artifact/675d7c5d-365e-46ff-b39b-b37000105065?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_', documentoLabel: '📄 Ver nonotebooklm', icon: '🔬', category: 'codigo', tag: 'Código' }, 
+      { id: 35, title: 'Projeto 35 — Linkedin', desc: 'cadastro de currículo', link: 'https://www.linkedin.com/feed/', linkLabel: '🔗 Ver no linkedin', icon: '📄', category: 'link', tag: 'Link' },             
+      { id: 36, title: 'Projeto 36 — Pet Shop', desc: 'site de agendamento', link: 'https://tomato-paw-care-flow.base44.app', linkLabel: '🔗 Ver link', icon: '📅', category: 'link', tag: 'Link' },
+      { id: 37, title: 'Projeto 37 — CodeDS', desc: 'site de aprendizado de DDS', link: 'https://dds-flow-master.base44.app', linkLabel: '🔗 Ver link', icon: '📊', category: 'link', tag: 'Link' },             
+      { id: 38, title: 'Projeto 38 — FinControl', desc: 'controle de finanças pessoais', link: 'https://spiritual-fin-flow-go.base44.app', linkLabel: '🔗 Ver link', icon: '📊', category: 'link', tag: 'Link' },
+      { id: 39, title: 'Projeto 39 — Turma Gentil', desc: 'controle escolar', link: 'https://mimo-escola-fcil.base44.app', linkLabel: '🔗 Ver link', icon: '🌍', category: 'link', tag: 'Link' },    
+      { id: 40, title: 'Projeto 40 — Abastecer+', desc: 'Controle de Abastecimento ( veículos )', link: 'https://meu-tanque-flow.base44.app', linkLabel: '🔗 Ver link', icon: '⚡', category: 'link', tag: 'Link' },
+      { id: 41, title: 'Projeto 41 — mymoney', desc: 'Controle de dinheiro', link: 'https://mymoney-copy-cd4a299d.base44.app', linkLabel: '🔗 Ver link', icon: '📊', category: 'link', tag: 'Link' },     
+      { id: 42, title: 'Projeto 42 — locadora de veículos', desc: 'aluge seu veículo', link: 'https://terra-trek-hub.base44.app/', linkLabel: '🔗 Ver link', icon: '💡', category: 'link', tag: 'Link' },             
+      { id: 43, title: 'Projeto 43 — calcule a área', desc: 'python', documento: 'calcule a área.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },             
+      { id: 44, title: 'Projeto 44 — conversor de dados', desc: 'python', documento: 'conversor de dados', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },             
+      { id: 45, title: 'Projeto 45 — conversor de medidas', desc: 'python', documento: 'conversor de medidas', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },             
+      { id: 46, title: 'Projeto 46 — Formação de Triângulo', desc: 'python', documento: 'Formação de Triângulo.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 47, title: 'Projeto 47 — IMPAR, PAR', desc: 'python', documento: 'IMPAR, PAR.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 48, title: 'Projeto 48 — import random', desc: 'python', documento: 'import random.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 49, title: 'Projeto 49 — import', desc: 'python', documento: 'import.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 50, title: 'Projeto 50 — leia o numero', desc: 'python', documento: 'leia o numero.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 51, title: 'Projeto 51 — media aritimetica', desc: 'python', documento: 'media aritimetica', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 52, title: 'Projeto 52 — nome completo', desc: 'python', documento: 'nome completo.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 53, title: 'Projeto 53 — preço do produto', desc: 'python', documento: 'preço do produto.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 54, title: 'Projeto 54 — raiz quadrada', desc: 'python', documento: 'raiz quadrada', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 55, title: 'Projeto 55 — tempo', desc: 'python', documento: 'tempo.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 56, title: 'Projeto 56 — teste', desc: 'python', documento: 'teste.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 57, title: 'Projeto 57 — teste.pyt', desc: 'python', documento: 'teste.pyt', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 58, title: 'Projeto 58 — trabalhar com modulos', desc: 'python', documento: 'trabalhar com modulos', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 59, title: 'Projeto 59 — transformação', desc: 'python', documento: 'transformação.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 60, title: 'Projeto 60 — viagem', desc: 'python', documento: 'viagem.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 61, title: 'Projeto 61 — aumento salarial', desc: 'python', documento: 'aumento salarial.py', documentoLabel: '📄 Ver Documento', icon: '💻', category: 'codigo', tag: 'Código' },
+      { id: 62, title: 'Projeto 62 — app academia', desc: 'gerenciamento do cliente', link: 'https://susihh.github.io/app-academia/telainicial.html', linkLabel: '🔗 Ver link', icon: '📊', category: 'link', tag: 'Link' },
     ];
 
-    
+    let currentCategory = 'all';
+
     /* ─────────────────────────────────────────
        RENDERIZAÇÃO
     ───────────────────────────────────────── */
@@ -328,12 +411,14 @@
       const noR  = document.getElementById('noResults');
       const term = document.getElementById('search').value.toLowerCase().trim();
 
-      // remove cards antigos
+      // Remove cards antigos
       grid.querySelectorAll('.card').forEach(c => c.remove());
 
-      const filtered = PROJECTS.filter(p =>
-        (p.title + p.desc + (p.tag || '')).toLowerCase().includes(term)
-      );
+      const filtered = PROJECTS.filter(p => {
+        const matchesSearch = (p.title + p.desc + (p.tag || '')).toLowerCase().includes(term);
+        const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
+        return matchesSearch && matchesCategory;
+      });
 
       if (filtered.length === 0) {
         noR.style.display = 'block';
@@ -342,16 +427,20 @@
         filtered.forEach((p, i) => {
           const card = document.createElement('div');
           card.className = 'card';
-          card.style.animationDelay = (i * 0.04) + 's';
+          card.style.animationDelay = (i * 0.03) + 's';
           
           const targetLink = p.link || p.documento || '#';
           const targetLabel = p.linkLabel || p.documentoLabel || '🔗 Ver';
 
           card.innerHTML = `
-            <span class="card-tag">${p.tag || 'Projeto'}</span>
-            <div class="card-icon">${p.icon || '💡'}</div>
-            <h2>${p.title}</h2>
-            <p>${p.desc}</p>
+            <div class="card-top">
+              <div class="card-header-row">
+                <div class="card-icon">${p.icon || '💡'}</div>
+                <span class="card-tag">${p.tag || 'Projeto'}</span>
+              </div>
+              <h2>${p.title}</h2>
+              <p>${p.desc}</p>
+            </div>
             <div class="card-footer">
               <a href="${targetLink}" target="_blank">${targetLabel}</a>
             </div>
@@ -360,11 +449,25 @@
         });
       }
 
-      // contagem
+      // Contagem dinâmica
+      const totalFiltered = filtered.length;
       document.getElementById('projectCount').textContent =
-        PROJECTS.length === 0 ? 'Nenhum projeto ainda.'
-        : `${PROJECTS.length} projeto${PROJECTS.length > 1 ? 's' : ''} no portfólio`;
+        totalFiltered === 0 ? 'Nenhum projeto encontrado'
+        : `${totalFiltered} projeto${totalFiltered > 1 ? 's' : ''} exibido${totalFiltered > 1 ? 's' : ''}`;
     }
+
+    /* ─────────────────────────────────────────
+       FILTROS POR CATEGORIA
+    ───────────────────────────────────────── */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-category');
+        renderAll();
+      });
+    });
 
     /* ─────────────────────────────────────────
        BUSCA
